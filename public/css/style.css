@@ -1,0 +1,162 @@
+:root {
+    --dark-blue: #0D1321;
+    --dark-navy: #1D2D44;
+    --blue-gray: #3E5C76;
+    --light-blue-gray: #748CAB;
+    --light-beige: #F0EBD8;
+}
+
+body {
+    background-color: var(--light-beige);
+    color: var(--dark-navy);
+    color: white;
+}
+.button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    stroke: white;
+    transition: stroke 0.3s ease, transform 0.2s ease;
+}
+
+.icon-link:hover .icon {
+    stroke: var(--light-blue-gray);
+    transform: scale(1.1);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.category-button {
+    background-color: var(--blue-gray);
+    color: var(--light-beige);
+    padding: 12px 30px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-button:hover {
+    background-color: var(--dark-blue);
+}
+
+.category-button:focus {
+    outline: none;
+}
+
+.button-add {
+    background-color: var(--dark-blue);
+    color: var(--light-beige);
+}
+
+.button-add:hover {
+    background-color: var(--dark-navy);
+}
+
+header {
+    background-color: var(--dark-blue);
+}
+
+h1 {
+    color: var(--light-beige);
+}
+
+input {
+    border: 2px solid var(--light-blue-gray);
+}
+
+button {
+    background-color: var(--light-blue-gray);
+    color: var(--dark-blue);
+}
+
+section {
+    background-color: var(--dark-navy);
+}
+
+main {
+    background-color: var(--light-beige);
+}
+
+.card {
+    background-color: var(--light-blue-gray);
+    color: var(--dark-blue);
+}
+
+.card:hover {
+    background-color: var(--blue-gray);
+}
+
+.button-add {
+    background-color: var(--dark-blue);
+    color: var(--light-beige);
+}
+
+.button-add:hover {
+    background-color: var(--dark-navy);
+}
+footer p{
+    color: black;
+}
+
+.swiper-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.swiper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--light-beige);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--blue-gray);
+}
