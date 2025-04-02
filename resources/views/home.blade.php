@@ -2,7 +2,7 @@
     @section('content')
 
     <!-- Kategóriák -->
-    <section x-data="{ open: false }" class="category-bar bg-dark-navy text-light-beige py-4">
+    <section x-data="{ open: false }" class="category-bar bg-dark-navy text-light-beige py-4" id="category-bar-section">
         <div class="container mx-auto px-4">
             <div class="md:hidden text-center">
                 <button @click="open = !open" class="w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600 flex items-center justify-between gap-2">
