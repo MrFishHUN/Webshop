@@ -1,44 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onetear Webshop</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="{{ asset('js/script.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body class="bg-light-beige">
-    @include('partials.header')
+    @extends("layouts.app")
+    @section('content')
 
     <!-- Kategóriák -->
-    <section class="category-bar bg-dark-navy text-light-beige py-4">
-        <div class="container mx-auto flex justify-around items-center">
-            <div class="category-item text-center">
-                <img src="{{ asset('img/alkatresz.png') }}" alt="Álkatrész" class="h-25 mx-auto mb-2">
-                <button class="category-button">Álkatrész</button>
+    <section x-data="{ open: false }" class="category-bar bg-dark-navy text-light-beige py-4">
+        <div class="container mx-auto px-4">
+            <div class="md:hidden text-center">
+                <button @click="open = !open" class="w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600 flex items-center justify-between gap-2">
+                    <span>Kategóriák</span>
+                    <i :class="open ? 'bi bi-chevron-up' : 'bi bi-chevron-down'" class="text-lg"></i>
+                </button>
             </div>
-            <div class="category-item text-center">
-                <img src="{{ asset('img/console.png') }}" alt="Játék" class="h-25 mx-auto mb-2">
-                <button class="category-button">Játék</button>
-            </div>
-            <div class="category-item text-center">
-                <img src="{{ asset('img/tv.png') }}" alt="TV" class="h-25 mx-auto mb-2">
-                <button class="category-button">TV</button>
-            </div>
-            <div class="category-item text-center">
-                <img src="{{ asset('img/pcb.png') }}" alt="Elektronikai eszközök" class="h-25 mx-auto mb-2">
-                <button class="category-button">Elektronikai eszközök</button>
+
+            <div class="md:flex md:justify-around md:items-center md:gap-4" :class="{ 'hidden': !open }">
+                <div class="category-item text-center flex-1">
+                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <i class="bi bi-motherboard"></i> Alkatrész
+                    </button>
+                </div>
+                <div class="category-item text-center flex-1">
+                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <i class="bi bi-controller"></i> Játékok
+                    </button>
+                </div>
+                <div class="category-item text-center flex-1">
+                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <i class="bi bi-tv"></i> Televíziók
+                    </button>
+                </div>
+                <div class="category-item text-center flex-1">
+                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <i class="bi bi-router"></i> Elektronikai eszközök
+                    </button>
+                </div>
             </div>
         </div>
     </section>
-
     <!-- Slider bar -->
-    <section class="w-full h-80 bg-dark-navy text-light-beige text-3xl font-bold flex flex-col items-center justify-center">
-        <h2 class="mb-6">Akciós ajánlatok!</h2>
+    <section class="w-full h-80 text-light-beige text-3xl font-bold flex flex-col items-center justify-center mt-8">
         <div class="swiper mySwiper w-3/4">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -58,7 +56,8 @@
     </section>
 
     <!-- Product Grid -->
-    <main class="container mx-auto p-6 grid grid-cols-4 gap-6">
+    <section class="container mx-auto p-6 grid grid-cols-4 gap-6">
+        <h2 class="text-3xl text-center text-sky-800 p-4 rounded-lg">Akciós ajánlatok!</h2>
         {{-- @foreach ($products as $product)
             <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md">
                 <img src="{{ asset('img/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-40 object-cover">
@@ -67,8 +66,7 @@
                 <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
             </div>
         @endforeach --}}
-    </main>
+    </section>
 
-    @include('partials.footer')
-</body>
-</html>
+    @endsection
+
