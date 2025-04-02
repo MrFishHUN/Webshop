@@ -9,9 +9,11 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/css/style.css',
+                'resources/js/script.js',
             ],
             refresh: true,
         }),
         tailwindcss(),
+
     ],
 });

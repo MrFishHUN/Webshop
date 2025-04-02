@@ -3,13 +3,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onetear Webshop</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     @vite('resources/js/app.js')
     @vite('resources/css/app.css')
     @vite('resources/css/style.css')
+    @vite('resources/js/script.js')
 </head>
 <body>
     <header class="bg-dark-blue shadow-md p-4 flex justify-between items-center text-white relative">
@@ -27,12 +24,12 @@
                     </li>
                     <li>
                         <a href="{{ route('login') }}" class="icon-link flex items-center text-white">
-                            <i data-lucide="user" class="icon mr-2"></i> Bejelentkezés
+                            <div id="home-icon-container"></div> Bejelentkezés
                         </a>
                     </li>
                     <li>
                         <a href="#" class="icon-link flex items-center relative text-white">
-                            <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
+                            <div id="cart-icon-container"></div> Kosár
                             <span class="cart-badge">0</span>
                         </a>
                     </li>
