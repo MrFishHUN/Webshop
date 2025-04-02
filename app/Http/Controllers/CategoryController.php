@@ -9,13 +9,13 @@ use Mockery\Exception;
 
 class CategoryController extends Controller
 {
-    //TODO: Change test view to admin view if everything works
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        //TODO: Change test view to admin view if everything works
         return view('test.category.index', ['categories' => Category::all()]);
     }
 
@@ -24,6 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        //TODO: Change test view to admin view if everything works
         return view('test.category.create', ['categories' => Category::all()]);
     }
 
@@ -36,12 +37,12 @@ class CategoryController extends Controller
         try {
             Category::create($validated);
 
+            //TODO: Change test view to admin view if everything works
             return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category created successfully']);
-            //TODO: Redirect admin page with success message
         }
         catch (Exception $e) {
+            //TODO: Change test view to admin view if everything works
             return redirect()->route('categories.index', ['categories' => Category::all()])->withErrors(['error' => 'Category creation failed']);
-            //TODO: Redirect admin page with error message
         }
     }
 
@@ -58,6 +59,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        //TODO: Change test view to admin view if everything works
         return view('test.category.edit', ['category' => $category, 'categories' => Category::all()]);
     }
 
@@ -71,12 +73,12 @@ class CategoryController extends Controller
             $findCategoty = Category::findOrFail($category->id);
             $findCategoty->update($validated);
 
+            //TODO: Change test view to admin view if everything works
             return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category updated successfully']);
-            //TODO: Redirect admin page with success message
         }
         catch (Exception $e){
+            //TODO: Change test view to admin view if everything works
             return redirect()->back()->withErrors(['error' => 'Category update failed']);
-            //TODO: Redirect admin page with error message
         }
     }
 
@@ -87,6 +89,8 @@ class CategoryController extends Controller
     {
         $findCategory = Category::findOrFail($category->id);
         $findCategory->delete();
+
+        //TODO: Change test view to admin view if everything works
         return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category deleted successfully']);
     }
 }
