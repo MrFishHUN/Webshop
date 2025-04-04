@@ -1,10 +1,9 @@
 <?php
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DisplayProductsController;
 use Illuminate\Support\Facades\Route;
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [DisplayProductsController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -13,6 +12,8 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
 
 #ADMIN
     Route::get('/admin/products/categories', [CategoryController::class, 'index'])->name('admin.products.categories');

@@ -9,4 +9,5 @@ class Discount extends Model
 {
     /** @use HasFactory<\Database\Factories\DiscountFactory> */
     use HasFactory;
+    public $timestamps = false;
 }
