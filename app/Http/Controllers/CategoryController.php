@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
 
 class CategoryController extends Controller
@@ -15,8 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //TODO: Change test view to admin view if everything works
-        return view('test.category.index', ['categories' => Category::all()]);
+        //get view table data
+        $main_categories = DB::table('main_categories')->get();
+        $alt_categories = DB::table('alt_categories')->get();
+
+        return view('admin.products.categories.index', ['main_categories' => $main_categories, 'alt_categories' => $alt_categories]);
     }
 
     /**

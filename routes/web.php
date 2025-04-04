@@ -13,3 +13,7 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+#ADMIN
+    Route::get('/admin/products/categories', [CategoryController::class, 'index'])->name('admin.products.categories');
+#ADMIN END

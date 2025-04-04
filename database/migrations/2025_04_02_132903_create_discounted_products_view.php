@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         DB::statement('
-            CREATE VIEW discounted_products_view AS
+            CREATE VIEW discounted_products AS
             select `p`.`id`                                                 AS `id`,
        `c`.`id`                                                 AS `category_id`,
        `p`.`slug`                                               AS `slug`,
@@ -38,6 +38,6 @@ from ((`webshop`.`products` `p` join `webshop`.`discounts` `d`
      */
     public function down(): void
     {
-        DB::statement('DROP VIEW discounted_products_view');
+        DB::statement('DROP VIEW discounted_products');
     }
 };
