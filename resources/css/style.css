@@ -217,3 +217,31 @@ button .cart-badge {
     justify-content: center;
     border-radius: 50%;
 }
+
+footer{
+    background-color: white;
+}
+
+footer .payment-options p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+footer .payment-logos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+}
+
+footer .payment-logo {
+    height: 35px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+footer .payment-logo:hover {
+    transform: scale(1.1);
+}

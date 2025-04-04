@@ -59,8 +59,14 @@
 
     <footer class="bg-dark-blue text-light-beige p-6 mt-12 text-center">
         <p>&copy; 2025 Onetear. Minden jog fenntartva.</p>
+
         <div class="payment-options mt-4">
-           <table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="#" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table>
+            <p class="text-lg font-semibold">Fizetés PayPal-lal és Barionnal</p>
+            <div class="payment-logos flex justify-center gap-8 mt-2">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="payment-logo">
+                <img src="{{ asset('img/barion-card-strip-intl__large.png') }}" alt="Barion" class="payment-logo">
+            </div>
+        </div>
     </footer>
     </body>
 </html>

@@ -28,8 +28,8 @@ return new class extends Migration
        `p`.`tags`                                               AS `tags`,
        `d`.`starts_at`                                          AS `discount_start`,
        `d`.`ends_at`                                            AS `discount_end`
-from ((`webshop`.`products` `p` join `webshop`.`discounts` `d`
-       on ((`p`.`id` = `d`.`product_id`))) join `webshop`.`categories` `c` on ((`c`.`id` = `p`.`category_id`)))
+from ((`products` `p` join `discounts` `d`
+       on ((`p`.`id` = `d`.`product_id`))) join `categories` `c` on ((`c`.`id` = `p`.`category_id`)))
         ');
     }
 

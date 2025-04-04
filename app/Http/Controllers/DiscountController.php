@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDiscountRequest;
 use App\Http\Requests\UpdateDiscountRequest;
 use App\Models\Discount;
+use PhpParser\Node\Expr\FuncCall;
 
 class DiscountController extends Controller
 {
@@ -13,7 +14,7 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
