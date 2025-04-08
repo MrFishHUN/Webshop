@@ -15,28 +15,26 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 #USER
-    // Route::get('/user' , function() {
-    //     return view('user.userData.index');
-    // })->name('userData') ;
-
-    // Route::get('/user' , function() {
-    //     return view('user.userOrder.index');
-    // })->name('userOrder') ;
-
-    // Route::get('/user' , function() {
-    //     return view('user.userGuarantee.index');
-    // })->name('userGuarantee') ;
-
-    // Route::get('/user' , function() {
-    //     return view('user.userBillingAddress.index');
-    // })->name('userBillingAddress') ;
-
     Route::get('/user' , function() {
+        return view('user.userData.index');
+    })->name('userData') ;
+
+    Route::get('/user/userOrder' , function() {
+        return view('user.userOrder.index');
+    })->name('userOrder') ;
+
+    Route::get('/user/userGuarantee' , function() {
+        return view('user.userGuarantee.index');
+    })->name('userGuarantee') ;
+
+    Route::get('/user/userBillingAddress' , function() {
+        return view('user.userBillingAddress.index');
+    })->name('userBillingAddress') ;
+
+    Route::get('/user/userReview' , function() {
         return view('user.userReview.index');
     })->name('userReview') ;
 #USER END
-
-
 
 #ADMIN
     Route::get('/admin/products/categories', [CategoryController::class, 'index'])->name('admin.products.categories');

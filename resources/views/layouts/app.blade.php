@@ -59,7 +59,6 @@
 
     <footer class="bg-dark-blue text-light-beige p-6 mt-12 text-center">
         <p>&copy; 2025 Onetear. Minden jog fenntartva.</p>
-
         <div class="payment-options mt-4">
             <p class="text-lg font-semibold">Fizetés PayPal-lal és Barionnal</p>
             <div class="payment-logos flex justify-center gap-8 mt-2">

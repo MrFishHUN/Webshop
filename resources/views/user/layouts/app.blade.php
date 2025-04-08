@@ -4,11 +4,11 @@
 <div class="flex">
     <aside class="w-1/4 bg-gray-100 p-4">
         <ul class="space-y-4">
-            <li><a href="#" class="user-nav">Felhasználói adatok</a></li>
-            <li><a href="#" class="user-nav">Rendelések</a></li>
-            <li><a href="#" class="user-nav">Garancia</a></li>
+            <li><a href="{{route("userData")}}" class="user-nav">Felhasználói adatok</a></li>
+            <li><a href="{{route("userOrder")}}" class="user-nav">Rendelések</a></li>
+            <li><a href="{{route("userGuarantee")}}" class="user-nav">Garancia</a></li>
             <li><a href="{{route("userReview")}}" class="user-nav">Értékelések</a></li>
-            <li><a href="" class="user-nav">Számlázási cím</a></li>
+            <li><a href="{{route("userBillingAddress")}}" class="user-nav">Számlázási cím</a></li>
         </ul>
     </aside>
 
