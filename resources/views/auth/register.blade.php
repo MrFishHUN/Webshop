@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regisztráció - Onetear Webshop</title>
-    <link rel="stylesheet" href="{{ asset('css/registration.css') }}">
+    @vite ("resources/css/registration.css")
+
 </head>
 <body>
     <div class="register-container">
         <h2>Regisztráció</h2>
         <form action="{{ route('register') }}" method="POST">
             @csrf
-            <label for="name">Felhasználó Név:</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Teljes név:</label>
+            <input placeholder="Kovács Kázmér" type="text" id="name" name="name" required>
 
             <label for="email">E-mail cím:</label>
-            <input type="email" id="email" name="email" required>
+            <input placeholder="pelda@pelda.pelda" type="email" id="email" name="email" required>
 
             <label for="password">Jelszó:</label>
-            <input type="password" id="password" name="password" required>
+            <input placeholder="Jelszó" type="password" id="password" name="password" required>
 
             <label for="confirm-password">Jelszó megerősítése:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
+            <input placeholder="Jelszó újra" type="password" id="confirm-password" name="confirm-password" required>
 
             <button type="submit" class="button register-button">Regisztráció</button>
         </form>

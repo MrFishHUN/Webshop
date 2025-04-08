@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bejelentkezés - Onetear Webshop</title>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    @vite ("resources/css/login.css")
 </head>
 <body>
     <div class="login-container">
@@ -12,10 +12,10 @@
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <label for="email">E-mail cím:</label>
-            <input type="email" id="email" name="email" required>
+            <input  placeholder="pelda@pelda.pelda" type="email" id="email" name="email" required>
 
             <label for="password">Jelszó:</label>
-            <input type="password" id="password" name="password" required>
+            <input placeholder="Jelszó" type="password" id="password" name="password" required>
 
             <button type="submit" class="button login-button">Bejelentkezés</button>
         </form>

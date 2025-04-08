@@ -82,6 +82,14 @@ body {
     .category-button i {
         font-size: 1.25rem;
     }
+    aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #user-content {
+        width: 100%;
+    }
 }
 
 .category-button:hover {
@@ -244,4 +252,91 @@ footer .payment-logo {
 
 footer .payment-logo:hover {
     transform: scale(1.1);
+}
+
+
+aside {
+    background-color: var(--light-blue-gray);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin-bottom: 12px;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+aside ul li a:hover {
+    color: var(--dark-navy);
+}
+
+#user-content {
+    background-color: var(--light-beige);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-nav {
+    padding: 10px 15px;
+    background-color: var(--blue-gray);
+    border-radius: 8px;
+    color: var(--light-beige);
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.user-nav:hover {
+    background-color: var(--dark-blue);
+    transform: scale(1.05);
+}
+
+header {
+    background-color: var(--dark-blue);
+    padding: 20px 10px;
+}
+
+aside {
+    background-color: var(--light-blue-gray);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+aside ul li {
+    margin: 10px 0;
+}
+
+aside ul li a {
+    color: var(--dark-navy);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+aside ul li a:hover {
+    color: var(--light-beige);
+    background-color: var(--dark-navy);
+    border-radius: 6px;
+}
+
+section #user-content {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--light-beige);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

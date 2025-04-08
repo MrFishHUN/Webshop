@@ -7,8 +7,11 @@
 }
 
 body {
-    background-color: var(--dark-navy);
-    color: var(--dark-navy);
+    background-image: url('/public/img/big-blue-gradient.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -18,17 +21,16 @@ body {
 }
 
 .register-container {
-    background-color: var(--blue-gray);
+    backdrop-filter: blur(1rem);
     padding: 30px 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.25);
     width: 100%;
     max-width: 400px;
     border: 2px solid var(--dark-blue);
 }
-
 h2 {
-    color: var(--light-beige);
+    color: white;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -76,18 +78,18 @@ button:hover {
 
 button:focus {
     outline: none;
+    background-color: var(--dark-blue);
 }
 
 p {
     text-align: center;
     margin-top: 20px;
-    color: var(--dark-blue);
+    color: white;
 }
 
 a {
-    color: var(--dark-blue);
+    color: white;
     font-weight: bold;
-    text-decoration: none;
 }
 
 a:hover {
