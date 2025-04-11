@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("content")
 
-<div class="flex">
+<div class="flex" id="user-menu">
     <aside class="w-1/4 bg-gray-100 p-4">
         <ul class="space-y-4">
             <li><a href="{{route("userData")}}" class="user-nav">Felhasználói adatok</a></li>

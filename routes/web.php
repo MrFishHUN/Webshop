@@ -34,6 +34,19 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/user/userReview' , function() {
         return view('user.userReview.index');
     })->name('userReview') ;
+
+    Route::get('/editData' , function() {
+        return view('user.editData.index');
+    })->name('editData') ;
+
+    Route::get('/editOrder' , function() {
+        return view('user.editOrder.index');
+    })->name('editOrder') ;
+
+    Route::get('/editBilling' , function() {
+        return view('user.editBilling.index');
+    })->name('editBilling') ;
+
 #USER END
 
 #ADMIN
