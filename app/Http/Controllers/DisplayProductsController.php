@@ -9,7 +9,12 @@ class DisplayProductsController extends Controller
 {
     public function index()
     {
-        $proudcts = DB::table('discounted_products')->inRandomOrder()->limit(8)->get();
-        return view('home', ['proudcts'=> $proudcts]);
+        $discountedProducts = DB::table('discounted_products')->inRandomOrder()->limit(8)->get();
+        $products = DB::table('products')->inRandomOrder()->limit(15)->get();
+
+        return view('home', [
+            'discountedProducts' => $discountedProducts,
+            'products' => $products
+        ]);
     }
 }

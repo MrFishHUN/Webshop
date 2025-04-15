@@ -47,6 +47,23 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
         return view('user.editBilling.index');
     })->name('editBilling') ;
 
+
+
+    Route::get('parts' , function() {
+        return view('category.parts.index');
+    })->name('parts') ;
+
+    Route::get('/games' , function() {
+        return view('category.games.index');
+    })->name('games') ;
+
+    Route::get('/televison' , function() {
+        return view('category.televison.index');
+    })->name('televison') ;
+
+    Route::get('/electronic-parts' , function() {
+        return view('category.electronic-parts.index');
+    })->name('electronic-parts') ;
 #USER END
 
 #ADMIN

@@ -13,24 +13,32 @@
 
             <div class="md:flex md:justify-around md:items-center md:gap-4" :class="{ 'hidden': !open }">
                 <div class="category-item text-center flex-1">
-                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
-                        <i class="bi bi-motherboard"></i> Alkatrész
-                    </button>
+                    <div class="category-item text-center flex-1">
+                        <a href="{{ route('parts') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                            <i class="bi bi-motherboard"></i> Alkatrész
+                        </a>
+                    </div>
                 </div>
                 <div class="category-item text-center flex-1">
-                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
-                        <i class="bi bi-controller"></i> Játékok
-                    </button>
+                    <div class="category-item text-center flex-1">
+                        <a href="{{ route('games') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                            <i class="bi bi-controller"></i> Játékok
+                        </a>
+                    </div>
                 </div>
                 <div class="category-item text-center flex-1">
-                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
-                        <i class="bi bi-tv"></i> Televíziók
-                    </button>
+                    <div class="category-item text-center flex-1">
+                        <a href="{{ route('televison') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                            <i class="bi bi-tv"></i> Televizió
+                        </a>
+                    </div>
                 </div>
                 <div class="category-item text-center flex-1">
-                    <button class="category-button button-with-icon w-full p-3 rounded-md bg-gray-700 hover:bg-gray-600">
-                        <i class="bi bi-router"></i> Elektronikai eszközök
-                    </button>
+                    <div class="category-item text-center flex-1">
+                        <a href="{{ route('electronic-parts') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                            <i class="bi bi-router"></i> Elektronikai alkatrészek
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,15 +66,14 @@
     <!-- Product Grid -->
     <h2 class="text-3xl text-center text-sky-800 p-4 rounded-lg mt-8">Akciós ajánlatok!</h2>
     <section class="container mx-auto p-6 grid grid-cols-4 gap-6">
-        @foreach ($proudcts as $product)
+        @foreach ($discountedProducts as $proudcts)
             <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md">
-                <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="{{ $product->title }}" class="w-full h-40 object-cover">
-                <h2 class="text-lg font-bold mt-2">{{ $product->title }}</h2>
-                <p class="text-dark-blue">{{ $product->price }} Ft</p>
+                <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="{{ $proudcts->title }}" class="w-full h-40 object-cover">
+                <h2 class="text-lg font-bold mt-2">{{ $proudcts->title }}</h2>
+                <p class="text-dark-blue">{{ $proudcts->price }} Ft</p>
                 <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
             </div>
         @endforeach
     </section>
-
     @endsection
 
