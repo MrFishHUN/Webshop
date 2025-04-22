@@ -2,6 +2,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DisplayProductsController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 Route::get('/', [DisplayProductsController::class, 'index']);
 
@@ -13,6 +14,10 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+#PRODUCT
+Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products.show');
+#PRODUCT END
 
 #USER
     Route::get('/user' , function() {

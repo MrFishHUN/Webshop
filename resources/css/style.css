@@ -386,3 +386,70 @@ section #user-content {
 .user-content-edit{
     color: black;
 }
+
+.product-detail {
+    background-color: var(--light-beige);
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.product-detail img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.product-info h1 {
+    color: var(--dark-blue);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.product-info p.price {
+    color: var(--blue-gray);
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-info p.description {
+    font-size: 1.1rem;
+    color: var(--dark-navy);
+    margin-bottom: 30px;
+}
+
+.product-info .button-add {
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+.dark-mode {
+    background-color: var(--dark-blue);
+    color: var(--light-beige);
+}
+
+.dark-mode header,
+.dark-mode footer,
+.dark-mode aside,
+.dark-mode main,
+.dark-mode section {
+    background-color: var(--dark-navy) !important;
+    color: var(--light-beige);
+}
+
+.dark-mode input,
+.dark-mode button,
+.dark-mode .card {
+    background-color: var(--blue-gray);
+    color: var(--light-beige);
+}
+
+.dark-mode a:hover {
+    color: var(--light-blue-gray);
+}

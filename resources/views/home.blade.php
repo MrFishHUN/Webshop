@@ -66,14 +66,16 @@
     <!-- Product Grid -->
     <h2 class="text-3xl text-center text-sky-800 p-4 rounded-lg mt-8">Akciós ajánlatok!</h2>
     <section class="container mx-auto p-6 grid grid-cols-4 gap-6">
-        @foreach ($discountedProducts as $proudcts)
-            <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md">
-                <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="{{ $proudcts->title }}" class="w-full h-40 object-cover">
-                <h2 class="text-lg font-bold mt-2">{{ $proudcts->title }}</h2>
-                <p class="text-dark-blue">{{ $proudcts->price }} Ft</p>
+        @foreach ($discountedProducts as $product)
+        <a href="{{ route('products.show', $product->id) }}">
+            <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="{{ $product->title }}" class="w-full h-40 object-cover">
+                <h2 class="text-lg font-bold mt-2">{{ $product->title }}</h2>
+                <p class="text-dark-blue">{{ $product->price }} Ft</p>
                 <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
             </div>
-        @endforeach
+        </a>
+    @endforeach
     </section>
     @endsection
 
