@@ -45,7 +45,7 @@
             <a href="{{ route('login') }}" class="icon-link flex items-center">
                 <i data-lucide="user" class="icon mr-2"></i> Bejelentkezés
             </a>
-            <a href="#" class="icon-link flex items-center relative">
+            <a href="{{ route('cart') }}" class="icon-link flex items-center relative">
                 <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
                 <span class="cart-badge">0</span>
             </a>

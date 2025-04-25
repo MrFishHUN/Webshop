@@ -44,10 +44,6 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
         return view('user.editData.index');
     })->name('editData') ;
 
-    Route::get('/editOrder' , function() {
-        return view('user.editOrder.index');
-    })->name('editOrder') ;
-
     Route::get('/editBilling' , function() {
         return view('user.editBilling.index');
     })->name('editBilling') ;
@@ -69,6 +65,14 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
     Route::get('/electronic-parts' , function() {
         return view('category.electronic-parts.index');
     })->name('electronic-parts') ;
+
+    Route::get('/cart' , function() {
+        return view('user.cart.index');
+    })->name('cart') ;
+
+    Route::get('/checkout' , function() {
+        return view('user.checkout.index');
+    })->name('checkout') ;
 #USER END
 
 #ADMIN
