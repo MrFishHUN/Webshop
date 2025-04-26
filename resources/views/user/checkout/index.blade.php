@@ -20,12 +20,12 @@
         <div class="space-y-3">
             <label class="flex items-center justify-between border p-3 rounded-md">
                 <span>FoxPost – ápr. 30</span>
-                <span>1 290 Ft</span>
+                <span>990 Ft</span>
                 <input type="radio" name="delivery" class="ml-2">
             </label>
             <label class="flex items-center justify-between border p-3 rounded-md">
-                <span>PostaPont – ápr. 30</span>
-                <span>1 360 Ft</span>
+                <span>Házhoz szállítás– ápr. 30</span>
+                <span>1 290 Ft</span>
                 <input type="radio" name="delivery" class="ml-2">
             </label>
         </div>
@@ -60,7 +60,8 @@
         <h2 class="text-xl font-bold mb-2">Fizetés</h2>
         <div class="space-y-2">
             <label><input type="radio" name="payment" checked> Online bankkártya</label><br>
-            <label><input type="radio" name="payment"> Utánvét</label>
+            <label><input type="radio" name="payment"> Utánvét</label><br>
+            <label><input type="radio" name="payment"> Paypal</label>
         </div>
     </section>
 

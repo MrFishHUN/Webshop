@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="bg-dark-blue shadow-md p-4 flex justify-between items-center text-white relative">
-        <img src="{{ asset('img/onetear2_transparent_corrected.png') }}" alt="TechShop logo" class="h-20">
+        <img src="{{ asset('storage/img/onetear2_transparent_corrected.png') }}" alt="TechShop logo" class="h-20">
         <div x-data="{ open: false }" class="block md:hidden bg-dark-blue">
             <button @click="open = !open" class="focus:outline-none">
                 <i data-lucide="menu" class="icon"></i>
@@ -63,7 +63,7 @@
             <p class="text-lg font-semibold">Fizetés PayPal-lal és Barionnal</p>
             <div class="payment-logos flex justify-center gap-8 mt-2">
                 <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="payment-logo">
-                <img src="{{ asset('img/barion-card-strip-intl__large.png') }}" alt="Barion" class="payment-logo">
+                <img src="{{ asset('storage/img/barion-card-strip-intl__large.png') }}" alt="Barion" class="payment-logo">
             </div>
         </div>
     </footer>

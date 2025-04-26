@@ -3,13 +3,13 @@
 <div class="container mx-auto p-6 bg-white shadow-md rounded-md mt-8 cart-item">
     <div class="flex flex-col md:flex-row gap-6 border-b pb-6">
 
-        <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="Xiaomi Redmi Buds" class="w-40 h-40 object-cover rounded-md">
+        <img src="{{ asset('storage/img/istockphoto-1147544807-612x612.jpg') }}" alt="Xiaomi Redmi Buds" class="w-40 h-40 object-cover rounded-md">
 
         <div class="flex-1">
             <h2 class="text-xl font-semibold">Xiaomi Redmi Buds 6 Play Bluetooth Headset White</h2>
             <p class="text-sm text-gray-600 mt-1">Cikkszám: <span class="font-semibold">719718</span></p>
             <p class="mt-2"><strong>Garancia:</strong> 12 hónap</p>
-            <p><strong>Megbízhatóság:</strong> <span class="text-green-600 font-bold">100%</span></p>
+            <p><strong>Értékelés:</strong> <span class="text-green-600 font-bold">⭐⭐⭐⭐☆</span></p>
         </div>
     <!-- Kupon -->
 

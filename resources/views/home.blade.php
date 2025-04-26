@@ -44,17 +44,17 @@
         </div>
     </section>
     <!-- Slider bar -->
-    <section class="w-full h-80 text-light-beige text-3xl font-bold flex flex-col items-center justify-center mt-8">
-        <div class="swiper mySwiper w-3/4">
-            <div class="swiper-wrapper">
+    <section class="w-full text-light-beige text-3xl font-bold flex flex-col items-center justify-center mt-8">
+        <div class="swiper mySwiper w-full h-[640px]">
+            <div class="swiper-wrapper h-full">
                 <div class="swiper-slide">
-                    <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="Akciós Termék 1" class="swiper-image">
+                    <img src="{{ asset('storage/img/slider1.png') }}" alt="Akciós Termék 1" class="w-full h-full object-cover object-center rounded-xl">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="Akciós Termék 2" class="swiper-image">
+                    <img src="{{ asset('storage/img/slider2.png') }}" alt="Akciós Termék 2" class="w-full h-full object-cover object-center rounded-xl">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="Akciós Termék 3" class="swiper-image">
+                    <img src="{{ asset('storage/img/slider3.png') }}" alt="Akciós Termék 3" class="w-full h-full object-cover object-center rounded-xl">
                 </div>
             </div>
             <div class="swiper-button-next"></div>

@@ -39,7 +39,7 @@ from ((`products` `p` join `discounts` `d`
        `c`.`created_at`  AS `created`,
        `c`.`updated_at`  AS `updated`,
        `c`.`deleted_at`  AS `deleted`
-from `webshop`.`categories` `c`
+from `categories` `c`
 where ((`c`.`parent_id` is null) and (`c`.`deleted_at` is null))
         ");
 
@@ -48,14 +48,14 @@ where ((`c`.`parent_id` is null) and (`c`.`deleted_at` is null))
         select `c`.`id`                                                AS `id`,
        `c`.`name`                                              AS `name`,
        `c`.`parent_id`                                         AS `parent_id`,
-       (select `webshop`.`categories`.`name` AS `name`
-        from `webshop`.`categories`
-        where (`c`.`parent_id` = `webshop`.`categories`.`id`)) AS `parent_name`,
+       (select `categories`.`name` AS `name`
+        from `categories`
+        where (`c`.`parent_id` = `categories`.`id`)) AS `parent_name`,
        `c`.`description`                                       AS `description`,
        `c`.`created_at`                                        AS `created`,
        `c`.`updated_at`                                        AS `updated`,
        `c`.`deleted_at`                                        AS `deleted`
-from (`webshop`.`categories` `c` join `webshop`.`categories` `c2` on ((`c`.`parent_id` = `c2`.`id`)))
+from (`categories` `c` join `categories` `c2` on ((`c`.`parent_id` = `c2`.`id`)))
 where (`c`.`deleted_at` is null)
         ");
     }
