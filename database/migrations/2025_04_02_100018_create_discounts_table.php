@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('discounts', function (Blueprint $table) {
-            $table->foreignId('product_id')->constrained('products')->primary();
+            $table->foreignId('product_id')->constrained('products')->primary()->cascadeOnDelete();
             $table->integer('percentage');
             $table->dateTime('starts_at');
             $table->dateTime('ends_at');

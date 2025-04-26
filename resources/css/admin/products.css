@@ -1,0 +1,61 @@
+.admin {
+    flex-direction: column;
+}
+
+
+tr:nth-child(even) td{
+    background-color: #e5e5e5;
+}
+
+.addProduct{
+    position: fixed;
+    top: 0.5rem;
+    right: 1rem;
+    width: 200px !important;
+    text-align: center;
+    z-index: 3;
+}
+
+
+
+textarea{
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 1rem;
+}
+
+.checkboxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 1rem 0 0 0;
+}
+.checkboxes div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.checkboxes input{
+    margin: 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+
+.split{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+}
+
+.error{
+    outline: 2px solid red !important;
+}

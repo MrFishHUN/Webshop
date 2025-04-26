@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\DisplayProductsController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -76,5 +78,13 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
 #USER END
 
 #ADMIN
-    Route::get('/admin/products/categories', [CategoryController::class, 'index'])->name('admin.products.categories');
+    Route::resource('/admin/products/categories', CategoryController::class);
+    Route::post('/admin/products/categories/search/', [CategoryController::class, 'search'])->name('categories.search');
+
+    Route::get('/admin/products/products/search', [ProductController::class, 'search'])->name('products.search');
+    Route::resource('/admin/products/products', ProductController::class);
+
+Route::get('/admin/products/discounts/search', [DiscountController::class, 'search'])->name('discount.search');
+    Route::resource('admin/products/discounts', DiscountController::class);
+    Route::resource('/admin/products/coupons', CouponController::class);
 #ADMIN END

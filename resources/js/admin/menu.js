@@ -1,3 +1,5 @@
+
+
 const menus = document.querySelectorAll('.nav-button');
 
 menus.forEach(menu => {
@@ -19,3 +21,11 @@ menus.forEach(menu => {
             })
 }
 );
+
+const exit = document.querySelectorAll('.exit');
+
+exit.forEach(e => {
+    e.addEventListener('click', () => {
+        e.parentElement.remove();
+    })
+});
