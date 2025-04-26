@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('slug')->unique();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('picture');
             $table->text('description');
             $table->string('summary');
             $table->integer('price');
             $table->integer('quantity');
-            $table->json('tags')->nullable();
+            $table->boolean('in_stock')->default(true);
+            $table->boolean('visible')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

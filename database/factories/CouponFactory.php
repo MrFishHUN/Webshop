@@ -17,7 +17,10 @@ class CouponFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'code' => fake()->unique()->word,
+            'percentage' => fake()->numberBetween(5, 80),
+            'starts_at' => fake()->dateTimeThisYear,
+            'ends_at' => fake()->dateTimeThisYear,
         ];
     }
 }

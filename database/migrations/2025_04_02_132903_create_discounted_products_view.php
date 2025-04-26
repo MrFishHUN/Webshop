@@ -25,12 +25,39 @@ return new class extends Migration
        round(((`p`.`price` * 1) - (`d`.`percentage` / 100)), 0) AS `price`,
        `d`.`percentage`                                         AS `percentage`,
        `p`.`quantity`                                           AS `quantity`,
-       `p`.`tags`                                               AS `tags`,
        `d`.`starts_at`                                          AS `discount_start`,
        `d`.`ends_at`                                            AS `discount_end`
 from ((`products` `p` join `discounts` `d`
        on ((`p`.`id` = `d`.`product_id`))) join `categories` `c` on ((`c`.`id` = `p`.`category_id`)))
         ');
+
+        DB::statement("
+            CREATE VIEW main_categories AS
+        select `c`.`id`          AS `id`,
+       `c`.`name`        AS `name`,
+       `c`.`description` AS `description`,
+       `c`.`created_at`  AS `created`,
+       `c`.`updated_at`  AS `updated`,
+       `c`.`deleted_at`  AS `deleted`
+from `webshop`.`categories` `c`
+where ((`c`.`parent_id` is null) and (`c`.`deleted_at` is null))
+        ");
+
+        DB::statement("
+        CREATE VIEW alt_categories AS
+        select `c`.`id`                                                AS `id`,
+       `c`.`name`                                              AS `name`,
+       `c`.`parent_id`                                         AS `parent_id`,
+       (select `webshop`.`categories`.`name` AS `name`
+        from `webshop`.`categories`
+        where (`c`.`parent_id` = `webshop`.`categories`.`id`)) AS `parent_name`,
+       `c`.`description`                                       AS `description`,
+       `c`.`created_at`                                        AS `created`,
+       `c`.`updated_at`                                        AS `updated`,
+       `c`.`deleted_at`                                        AS `deleted`
+from (`webshop`.`categories` `c` join `webshop`.`categories` `c2` on ((`c`.`parent_id` = `c2`.`id`)))
+where (`c`.`deleted_at` is null)
+        ");
     }
 
     /**
@@ -39,5 +66,7 @@ from ((`products` `p` join `discounts` `d`
     public function down(): void
     {
         DB::statement('DROP VIEW discounted_products');
+        DB::statement('DROP VIEW main_categories');
+        DB::statement('DROP VIEW alt_categories');
     }
 };

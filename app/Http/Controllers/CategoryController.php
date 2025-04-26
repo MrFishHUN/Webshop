@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
 
@@ -28,8 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //TODO: Change test view to admin view if everything works
-        return view('test.category.create', ['categories' => Category::all()]);
+
     }
 
     /**
@@ -38,16 +38,15 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $validated = $request->validated();
-        try {
-            Category::create($validated);
-
-            //TODO: Change test view to admin view if everything works
-            return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category created successfully']);
+        $category = new Category([
+            'name' => $validated['name'],
+            'description' => $validated['description'],
+        ]);
+        if (isset($validated['parent_id']) && Category::where('id', $validated['parent_id'])->exists()) {
+            $category->parent_id = $validated['parent_id'];
         }
-        catch (Exception $e) {
-            //TODO: Change test view to admin view if everything works
-            return redirect()->route('categories.index', ['categories' => Category::all()])->withErrors(['error' => 'Category creation failed']);
-        }
+        $category->save();
+        return redirect()->route('categories.index') ->with('success', 'Kategória sikeresen létrehozva');
     }
 
     /**
@@ -63,8 +62,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //TODO: Change test view to admin view if everything works
-        return view('test.category.edit', ['category' => $category, 'categories' => Category::all()]);
+        return view('admin.products.categories.edit', ['category' => $category, 'main_categories' => Category::where('parent_id', null)->get(),'selected' => $category]);
     }
 
     /**
@@ -72,18 +70,17 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        try{
-            $validated = $request->validated();
-            $findCategoty = Category::findOrFail($category->id);
-            $findCategoty->update($validated);
-
-            //TODO: Change test view to admin view if everything works
-            return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category updated successfully']);
+        $validated = $request->validated();
+        $category = Category::findOrFail($category->id);
+        $category->name = $validated['name'];
+        $category->description = $validated['description'];
+        if (isset($validated['parent_id']) && Category::where('id', $validated['parent_id'])->exists()) {
+            $category->parent_id = $validated['parent_id'];
+        } else {
+            $category->parent_id = null;
         }
-        catch (Exception $e){
-            //TODO: Change test view to admin view if everything works
-            return redirect()->back()->withErrors(['error' => 'Category update failed']);
-        }
+        $category->save();
+        return redirect()->route('categories.index')->with('success', 'Kategória sikeresen frissítve');
     }
 
     /**
@@ -94,7 +91,13 @@ class CategoryController extends Controller
         $findCategory = Category::findOrFail($category->id);
         $findCategory->delete();
 
-        //TODO: Change test view to admin view if everything works
-        return redirect()->route('categories.index', ['categories' => Category::all(), 'success' => 'Category deleted successfully']);
+        return redirect()->route('categories.index')->with('success', 'Kategória sikeresen törölve');
+    }
+
+    public function search(Request $request)
+    {
+        $main_categories = DB::table('main_categories')->where('name','LIKE','%'.$request->name.'%')->get();
+        $alt_categories = DB::table('alt_categories')->where('name','LIKE','%'.$request->name.'%')->get();
+        return view('admin.products.categories.index', ['main_categories' => $main_categories, 'alt_categories' => $alt_categories]);
     }
 }

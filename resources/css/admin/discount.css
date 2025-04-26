@@ -1,0 +1,9 @@
+.admin{
+    display: flex;
+    flex-flow: column;
+}
+
+.addDiv{
+    position: relative !important;
+    margin: 2rem;
+}

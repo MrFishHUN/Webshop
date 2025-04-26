@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100%;
+    height: max-content;
     min-height: 100vh;
 }
 
@@ -30,6 +30,12 @@ nav{
     display: flex;
     flex-direction: column;
     text-align: center;
+    min-height: 100vh;
+}
+
+main{
+    height: 100%;
+    min-height: 100vh;
 }
 
 h1{
@@ -90,4 +96,259 @@ h1{
 
 .open:hover{
     border-radius: 8px 8px 8px 8px !important;
+}
+
+.btn{
+    width: 25%;
+    padding: 1rem;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-add{
+    background-color: #118611;
+}
+
+.btn-add:hover{
+    background-color: #0f6f0f;
+}
+
+.btn-delete{
+    background-color: #d50000;
+}
+.btn-delete:hover{
+    background-color: #b00000;
+}
+
+.btn-edit{
+    background-color: #0d6efd;
+}
+.btn-edit:hover{
+    background-color: #0b5ed7;
+}
+
+main{
+    width: 100%;
+}
+
+.alert{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    width: 500px;
+    height: 100px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.alert-success{
+    background-color: rgba(17, 134, 17, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.exit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-error{
+    outline: 2px solid red !important;
+}
+
+.centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.modify form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background-color: var(--dark-navy);
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.modify form input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.modify form input:focus{
+    outline: 2px solid var(--blue-gray);
+}
+
+.modify form select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.modify form select:focus{
+    outline: 2px solid var(--blue-gray);
+}
+
+.modify form button{
+    width: 100%;
+    margin: 1rem 0 0 0;
+}
+
+.modify form a{
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.title{
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: var(--blue-gray);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.8rem;
+}
+
+thead {
+    background-color: var(--dark-blue);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2 !important;
+}
+
+th {
+    text-align: left;
+    padding: 1rem !important;
+}
+
+td {
+    text-align: left;
+    background-color: white;
+}
+
+th, td {
+    padding: 0.5rem;
+}
+
+.admin {
+    display: flex;
+    margin: 1rem;
+}
+
+.table-container{
+    width: 60%;
+}
+
+td form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+td .btn{
+    width: 100%;
+    text-align: center;
+    height: 1rem;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+}
+
+.search input{
+    width: 25%;
+    padding: 10px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.search input:focus{
+    outline: 2px solid var(--blue-gray);
+}
+
+.search button{
+    padding: 10px;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    outline: none;
+    background-color: var(--blue-gray);
+    color: white;
+    cursor: pointer;
+}
+
+.modify{
+    width: 50%;
+}
+
+.search button:hover{
+    background-color: var(--dark-blue);
+}
+
+.old-price{
+    text-decoration: line-through;
+    color: red;
+}
+
+.new-price{
+    color: green;
 }

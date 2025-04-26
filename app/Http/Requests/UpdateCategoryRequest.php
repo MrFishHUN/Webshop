@@ -24,15 +24,7 @@ class UpdateCategoryRequest extends FormRequest
         return [
             'name' => ['string', 'max:50', 'unique:categories,name,' . $this->route('category')->id],
             'description' => ['string'],
-            'parent_id' => ['integer'],
-            'tags' => ['array'],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'name.unique' => 'The category name is already taken.',
+            'parent_id' => ['nullable'],
         ];
     }
 }

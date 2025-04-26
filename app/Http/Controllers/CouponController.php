@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCouponRequest;
 use App\Http\Requests\UpdateCouponRequest;
 use App\Models\Coupon;
+use Illuminate\Support\Str;
 
 class CouponController extends Controller
 {
@@ -21,7 +22,7 @@ class CouponController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.discounts.coupon.create');
     }
 
     /**
@@ -29,7 +30,19 @@ class CouponController extends Controller
      */
     public function store(StoreCouponRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $code = Str::random(10);
+        while (Coupon::where('code', $code)->exists()) {
+            $code = Str::random(10);
+        }
+        $coupon = new Coupon([
+            'code' => $code,
+            'percentage' => $validated['percentage'],
+            'starts_at' => $validated['starts_at'],
+            'ends_at' => $validated['ends_at'],
+        ]);
+        $coupon->save();
+        return redirect()->route('discounts.index')->with('success', 'Kupon sikeresen létrehozva');
     }
 
     /**
@@ -45,7 +58,7 @@ class CouponController extends Controller
      */
     public function edit(Coupon $coupon)
     {
-        //
+
     }
 
     /**
@@ -53,7 +66,7 @@ class CouponController extends Controller
      */
     public function update(UpdateCouponRequest $request, Coupon $coupon)
     {
-        //
+
     }
 
     /**
@@ -61,6 +74,7 @@ class CouponController extends Controller
      */
     public function destroy(Coupon $coupon)
     {
-        //
+        $coupon->delete();
+        return redirect()->back()->with('success', 'Kupon sikeresen törölve');
     }
 }

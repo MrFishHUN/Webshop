@@ -9,4 +9,23 @@ class Coupon extends Model
 {
     /** @use HasFactory<\Database\Factories\CouponFactory> */
     use HasFactory;
+
+    public $timestamps = false;
+    protected $fillable = [
+        'code',
+        'percentage',
+        'starts_at',
+        'ends_at',
+    ];
+
+    protected $casts = [
+        'starts_at' => 'datetime',
+        'ends_at' => 'datetime',
+    ];
+
+    public function isValid(): bool
+    {
+        $now = now();
+        return $this->starts_at <= $now && $this->ends_at >= $now;
+    }
 }

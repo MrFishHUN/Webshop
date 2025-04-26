@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDiscountRequest;
 use App\Http\Requests\UpdateDiscountRequest;
+use App\Models\Coupon;
 use App\Models\Discount;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -14,7 +15,9 @@ class DiscountController extends Controller
      */
     public function index()
     {
-
+        $discounts = Discount::with(['product'])->paginate(5);
+        $coupns = Coupon::paginate(5);
+        return view('admin.products.discounts.index', ['discounts' => $discounts, 'coupons' => $coupns]);
     }
 
     /**
@@ -62,6 +65,19 @@ class DiscountController extends Controller
      */
     public function destroy(Discount $discount)
     {
-        //
+        $discount->delete();
+        return redirect()->route('discounts.index')->with('success', 'Kedvezmény sikeresen törölve');
+    }
+
+    public function search()
+    {
+        $search = request('search');
+        $discounts = Discount::with(['product'])->where('percentage', 'like', '%' . $search . '%')->orWhere('product_id', 'like', '%' . $search . '%')->orWhereHas('product', function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        })->paginate(5);
+
+        $coupns = Coupon::where('code', 'like', '%' . $search . '%')->orWhere('id', 'like', '%' . $search . '%')->paginate(5);
+
+        return view('admin.products.discounts.index', ['discounts' => $discounts, 'coupons' => $coupns])->with('success', 'Kedvezmény sikeresen törölve');
     }
 }

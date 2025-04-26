@@ -8,9 +8,19 @@
     @vite('resources/css/admin/main.css')
     @vite('resources/js/icon.js')
     @vite('resources/js/admin/menu.js')
+    @vite('resources/css/paginate.css')
+    @yield('head')
     <title>@yield('title') - Admin</title>
 </head>
 <body>
+@if(null != session('success'))
+    <div class="alert alert-success">
+        <i class="bi bi-x-lg exit"></i>
+        <span style="text-align: center">
+            <strong>Sikeres művelet!</strong><br>{{session('success')}}!
+        </span>
+    </div>
+@endif
     <nav>
         <h1>Adminisztráció</h1>
         <div class="nav-button">
@@ -35,9 +45,9 @@
             <button>Termékek <i class="bi bi-chevron-down"></i></button>
             <ul class="hide">
                 <!-- Options -->
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
+                <a href="{{route('products.index')}}">Terméklista</a>
+                <a href="{{route('categories.index')}}">Kategóriák</a>
+                <a href="{{route('discounts.index')}}">Kedvezmények</a>
             </ul>
         </div>
         <div class="nav-button">

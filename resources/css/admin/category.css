@@ -1,0 +1,49 @@
+.table-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.form-container{
+    width: 40%;
+    padding: 1rem;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: var(--dark-navy) 2px solid;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+.form-container form input, .form-container form select{
+    margin: 5px;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    outline: none;
+    border: 2px solid var(--dark-blue);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.margint-top-10{
+    margin-top: 10px;
+}
+
+.action-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
