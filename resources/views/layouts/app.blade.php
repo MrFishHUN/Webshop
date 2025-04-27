@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="bg-dark-blue shadow-md p-4 flex justify-between items-center text-white relative">
-        <img src="{{ asset('storage/img/onetear2_transparent_corrected.png') }}" alt="TechShop logo" class="h-20">
+        <a href="{{route('home')}}"><img src="{{ asset('storage/img/onetear2_transparent_corrected.png') }}" alt="TechShop logo" class="h-20"></a>
         <div x-data="{ open: false }" class="block md:hidden bg-dark-blue">
             <button @click="open = !open" class="focus:outline-none">
                 <i data-lucide="menu" class="icon"></i>
@@ -70,12 +70,12 @@
                 </div>
             </div>
             <div class="faq-links">
-                <h3 class="text-lg font-semibold mb-4">Gyakori kérdések</h3>
+                <h3 class="text-lg font-semibold mb-4">Egyebek</h3>
                 <ul class="space-y-2">
-                    <li><a href="/gyik" class="hover:underline">Gyakran ismételt kérdések</a></li>
-                    <li><a href="/szallitas" class="hover:underline">Szállítási információk</a></li>
-                    <li><a href="/visszakuldes" class="hover:underline">Visszaküldés és csere</a></li>
-                    <li><a href="/kapcsolat" class="hover:underline">Kapcsolat</a></li>
+                    <li><a href="" class="hover:underline">Gyakran ismételt kérdések</a></li>
+                    <li><a href="" class="hover:underline">Szállítási információk</a></li>
+                    <li><a href="" class="hover:underline">Visszaküldés és csere</a></li>
+                    <li><a href="" class="hover:underline">Kapcsolat</a></li>
                 </ul>
             </div>
         </div>

@@ -35,7 +35,7 @@
                 </div>
                 <div class="category-item text-center flex-1">
                     <div class="category-item text-center flex-1">
-                        <a href="{{ route('electronic-parts') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <a href="{{ route('electronic-devices') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
                             <i class="bi bi-router"></i> Elektronikai alkatrészek
                         </a>
                     </div>

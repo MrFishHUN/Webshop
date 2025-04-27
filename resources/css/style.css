@@ -172,9 +172,6 @@ main {
 .button-add:hover {
     background-color: var(--dark-navy);
 }
-footer p{
-    color: black;
-}
 
 .swiper image {
     width: 100%;
@@ -289,7 +286,7 @@ footer .faq-links ul li a {
 }
 
 footer .faq-links ul li a:hover {
-    color: #FFD700;
+    color: var(--light-blue-gray);
 }
 
 

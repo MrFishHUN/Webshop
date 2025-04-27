@@ -25,10 +25,17 @@
             </div>
         </div>
     </div>
-
-    <div id="product-list">
-        <!-- Termékek majd -->
+    <div class="container mx-auto p-6 grid grid-cols-4 gap-6">
+        @foreach ($product as $item)
+        <a href="">
+            <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <img src="{{ asset('img/istockphoto-1147544807-612x612.jpg') }}" alt="" class="w-full h-40 object-cover">
+                <h2 class="text-lg font-bold mt-2">{{ $item->name }}</h2>
+                <p class="text-dark-blue">{{ $item->description }} Ft</p>
+                <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
+            </div>
+        </a>
+    @endforeach
     </div>
 </section>
-
 @endsection

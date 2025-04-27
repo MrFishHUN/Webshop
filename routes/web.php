@@ -3,10 +3,23 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\DisplayElectronicDevicesController;
+use App\Http\Controllers\DisplayGamesController;
+use App\Http\Controllers\DisplayPartsController;
 use App\Http\Controllers\DisplayProductsController;
+use App\Http\Controllers\DisplayTelevisionController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-Route::get('/', [DisplayProductsController::class, 'index']);
+
+Route::get('/', [DisplayProductsController::class, 'index'])->name('home');
+
+
+Route::get('/electronic-devices', [DisplayElectronicDevicesController::class, 'index'])->name('electronic-devices');
+Route::get('/parts', [DisplayPartsController::class, 'index'])->name('parts');
+Route::get('/games', [DisplayGamesController::class, 'index'])->name('games');
+Route::get('/televison', [DisplayTelevisionController::class, 'index'])->name('televison');
+
+
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -49,24 +62,6 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
     Route::get('/editBilling' , function() {
         return view('user.editBilling.index');
     })->name('editBilling') ;
-
-
-
-    Route::get('parts' , function() {
-        return view('category.parts.index');
-    })->name('parts') ;
-
-    Route::get('/games' , function() {
-        return view('category.games.index');
-    })->name('games') ;
-
-    Route::get('/televison' , function() {
-        return view('category.televison.index');
-    })->name('televison') ;
-
-    Route::get('/electronic-parts' , function() {
-        return view('category.electronic-parts.index');
-    })->name('electronic-parts') ;
 
     Route::get('/cart' , function() {
         return view('user.cart.index');
