@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="product-detail">
+<section class="product-detail mt-20">
     <img src="{{asset("storage/".$product->picture)  }}" alt="{{ $product->title }}">
     <div class="product-info">
         <h1>{{ $product->title }}</h1>

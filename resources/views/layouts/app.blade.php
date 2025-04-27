@@ -57,13 +57,26 @@
         @yield('content')
     </main>
 
-    <footer class="bg-dark-blue text-light-beige p-6 mt-12 text-center">
-        <p>&copy; 2025 Onetear. Minden jog fenntartva.</p>
-        <div class="payment-options mt-4">
-            <p class="text-lg font-semibold">Fizetés PayPal-lal és Barionnal</p>
-            <div class="payment-logos flex justify-center gap-8 mt-2">
-                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="payment-logo">
-                <img src="{{ asset('storage/img/barion-card-strip-intl__large.png') }}" alt="Barion" class="payment-logo">
+    <footer class="bg-dark-blue text-light-beige p-6 mt-12">
+        <div class="flex items-start text-left gap-6">
+            <div>
+                <p class="mb-4">&copy; 2025 Onetear. Minden jog fenntartva.</p>
+                <div class="payment-options">
+                    <p class="text-lg font-semibold mb-2">Fizetés PayPal-lal és Barionnal</p>
+                    <div class="payment-logos flex gap-4 mt-2 flex-wrap">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="payment-logo">
+                        <img src="{{ asset('storage/img/barion-card-strip-intl__large.png') }}" alt="Barion" class="payment-logo">
+                    </div>
+                </div>
+            </div>
+            <div class="faq-links">
+                <h3 class="text-lg font-semibold mb-4">Gyakori kérdések</h3>
+                <ul class="space-y-2">
+                    <li><a href="/gyik" class="hover:underline">Gyakran ismételt kérdések</a></li>
+                    <li><a href="/szallitas" class="hover:underline">Szállítási információk</a></li>
+                    <li><a href="/visszakuldes" class="hover:underline">Visszaküldés és csere</a></li>
+                    <li><a href="/kapcsolat" class="hover:underline">Kapcsolat</a></li>
+                </ul>
             </div>
         </div>
     </footer>

@@ -9,7 +9,6 @@
 body {
     background-color: var(--light-beige);
     color: var(--dark-navy);
-    color: white;
     display: flex;
     flex-direction: column;
 }
@@ -97,6 +96,20 @@ body, html {
 
     #user-content {
         width: 100%;
+    }
+
+    #search-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #product-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
@@ -239,7 +252,10 @@ button .cart-badge {
 footer{
     background-color: white;
     margin-top: auto;
+}
 
+footer div{
+    justify-content: space-evenly;
 }
 
 footer .payment-options p {
@@ -264,6 +280,16 @@ footer .payment-logo {
 
 footer .payment-logo:hover {
     transform: scale(1.1);
+}
+
+footer .faq-links ul li a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .faq-links ul li a:hover {
+    color: #FFD700;
 }
 
 
@@ -528,4 +554,105 @@ section #user-content {
 .extra-services label {
     font-weight: normal;
     color: var(--light-beige);
+}
+
+#search-section {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#sidebar {
+    width: 250px;
+    background-color: var(--dark-navy);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    height: 600px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.category-checkbox {
+    margin-right: 10px;
+}
+
+#category-filter label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+#category-filter label:hover {
+    cursor: pointer;
+    color: var(--light-beige);
+}
+
+.category-checkbox {
+    margin-right: 10px;
+}
+
+.price-range {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.price-slider {
+    width: 100%;
+    height: 10px;
+    background: var(--light-blue-gray);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--dark-blue);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price-slider::-webkit-slider-thumb:hover {
+    background: var(--blue-gray);
+}
+
+.price-slider:focus {
+    background: var(--blue-gray);
+}
+
+.price-range span {
+    font-size: 1rem;
+    color: var(--dark-blue);
+}
+
+button.category-button {
+    background-color: var(--blue-gray);
+    color: var(--light-beige);
+    padding: 12px 30px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.category-button:hover {
+    background-color: var(--dark-blue);
 }
