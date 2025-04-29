@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->integer('percentage');
-            $table->dateTime('starts_at');
-            $table->dateTime('ends_at');
+            $table->date('starts_at');
+            $table->date('ends_at');
         });
     }
 

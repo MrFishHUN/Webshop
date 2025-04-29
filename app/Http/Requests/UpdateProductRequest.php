@@ -33,4 +33,23 @@ class UpdateProductRequest extends FormRequest
             'visible' => ['boolean', 'nullable'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.string' => 'A címnek szövegnek kell lennie.',
+            'title.max' => 'A cím maximum 50 karakter hosszú lehet.',
+            'title.unique' => 'A cím már létezik.',
+            'description.string' => 'A leírásnak szövegnek kell lennie.',
+            'summary.string' => 'Az összefoglalónak szövegnek kell lennie.',
+            'price.integer' => 'Az árnak számnak kell lennie.',
+            'price.min' => 'Az árnak legalább 0-nak kell lennie.',
+            'category_id.exists' => 'A megadott kategória nem létezik.',
+            'picture.image' => 'A képnek képfájl formátumúnak kell lennie.',
+            'picture.mimes' => 'A kép formátuma jpeg, png, jpg, gif vagy svg lehet.',
+            'picture.max' => 'A kép maximális mérete 2MB lehet.',
+            'quantity.integer' => 'A mennyiségnek számnak kell lennie.',
+            'quantity.min' => 'A mennyiség legalább 1 legyen.',
+        ];
+    }
 }

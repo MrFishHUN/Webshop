@@ -17,7 +17,10 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => fake()->numberBetween(1, 100),
+            'status' => fake()->randomElement(['empty', 'loaded', 'checked_out']),
+            'created_at' => fake()->dateTimeThisYear,
+            'updated_at' => fake()->dateTimeThisYear,
         ];
     }
 }

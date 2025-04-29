@@ -2,47 +2,53 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Roles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class User extends Model
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function sendPasswordReset()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        // Logic to send password reset email
+        $token = bin2hex(random_bytes(32));
+
+        DB::table('password_reset_tokens')->updateOrInsert(
+            ['user_id' => $this->id],
+            [
+                'token' => $token,
+                'created_at' => now(),
+                'expires_at' => now()->addMinutes(15),
+            ]
+        );
+
+        logger()->info("Password reset token for user {$this->email}: {$token}");
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function roles()
+    {
+        return $this->hasMany(Role::class);
+    }
+
+    public function hasRole(Roles $role): bool
+    {
+        return $this->roles()->where('role', $role)->exists();
     }
 }

@@ -1,0 +1,12 @@
+.admin{
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}

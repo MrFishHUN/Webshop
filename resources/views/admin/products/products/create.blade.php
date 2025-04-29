@@ -11,20 +11,57 @@
                 @csrf
                 <label for="title">Név:</label>
                 <input type="text" name="title" id="title" value="{{old('title')}}" class="@error('title') error @enderror">
+                @error('title')
+                <p class="form-message-error">
+                    {{ $message }}
+                </p>
+                @enderror
+
+
                 <label for="description">Leírás:</label>
                 <textarea name="description" id="description" cols="70" rows="10" class="@error('description') error @enderror">{{old('description')}}</textarea>
+                @error('description')
+                <p class="form-message-error">
+                    {{ $message }}
+                </p>
+                @enderror
+
+
                 <label for="summary">Rövid leírás:</label>
                 <input type="text" name="summary" id="summary" value="{{old('summary')}}" class="@error('summary') error @enderror">
+                @error('summary')
+                <p class="form-message-error">
+                    {{ $message }}
+                </p>
+                @enderror
+
+
                 <label for="picture">Kép:</label>
                 <input type="file" name="picture" id="picture" accept="image/*" class="@error('picture') error @enderror">
+                @error('picture')
+                <p class="form-message-error">
+                    {{ $message }}
+                </p>
+                @enderror
+
                 <div class="split">
                     <div>
                         <label for="price">Ár:</label>
                         <input value="{{old('price')}}" type="number" name="price" id="price" class="@error('price') error @enderror">
+                        @error('price')
+                        <p class="form-message-error">
+                            {{ $message }}
+                        </p>
+                        @enderror
                     </div>
                     <div>
                         <label for="quantity">Mennyiség:</label>
                         <input value="{{old('quantity')}}" type="number" name="quantity" id="quantity" class="@error('quantity') error @enderror">
+                        @error('quantity')
+                        <p class="form-message-error">
+                            {{ $message }}
+                        </p>
+                        @enderror
                     </div>
                 </div>
                 <label for="category_id">Kategória:</label>
@@ -33,6 +70,11 @@
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
+                @error('category_id')
+                <p class="form-message-error">
+                    {{ $message }}
+                </p>
+                @enderror
                 <div class="checkboxes">
                     <div>
                         <label for="in_stock">Raktáron:</label>

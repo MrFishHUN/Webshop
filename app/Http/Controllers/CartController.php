@@ -13,7 +13,13 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        //descending order by created_at and where status is checked_out
+        $carts = Cart::where('status', '=', 'checked_out')->orderBy('created_at', 'desc')->with(['user'])->paginate(10);
+
+
+
+
+        return view('admin.orders.carts.index', ['carts' => $carts]);
     }
 
     /**
@@ -37,7 +43,8 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        $cart = Cart::with(['user', 'items.product'])->find($cart->id);
+        return view('admin.orders.carts.show', ['cart' => $cart]);
     }
 
     /**
