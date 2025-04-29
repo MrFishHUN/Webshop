@@ -1,10 +1,12 @@
 <?php
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\DisplayProductsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 Route::get('/', [DisplayProductsController::class, 'index']);
 
@@ -15,11 +17,6 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
-#PRODUCT
-Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products.show');
-#PRODUCT END
 
 #USER
     Route::get('/user' , function() {
@@ -52,22 +49,6 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
 
 
 
-    Route::get('parts' , function() {
-        return view('category.parts.index');
-    })->name('parts') ;
-
-    Route::get('/games' , function() {
-        return view('category.games.index');
-    })->name('games') ;
-
-    Route::get('/televison' , function() {
-        return view('category.televison.index');
-    })->name('televison') ;
-
-    Route::get('/electronic-parts' , function() {
-        return view('category.electronic-parts.index');
-    })->name('electronic-parts') ;
-
     Route::get('/cart' , function() {
         return view('user.cart.index');
     })->name('cart') ;
@@ -87,4 +68,19 @@ Route::get('/termekek/{id}', [ProductController::class, 'show'])->name('products
 Route::get('/admin/products/discounts/search', [DiscountController::class, 'search'])->name('discount.search');
     Route::resource('admin/products/discounts', DiscountController::class);
     Route::resource('/admin/products/coupons', CouponController::class);
+
+    //users
+Route::put('admin/users/users/restore/{user}', [UserController::class, 'restore'])->name('users.restore');
+Route::delete('admin/users/users/forcedelete/{user}', [UserController::class, 'forceDelete'])->name('users.forceDelete');
+Route::post('admin/users/users/newPassword/{user}', [UserController::class, 'newPassword'])->name('users.sendPasswordResetEmail');
+Route::get('admin/users/users', [UserController::class, 'index'])->name('users.index');
+Route::delete('admin/users/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('admin/users/users/search', [UserController::class, 'search'])->name('users.search');
+Route::get('admin/users/users/{user}/edit', [UserController::class, 'editEmail'])->name('users.editEmail');
+Route::put('admin/users/users/{user}', [UserController::class, 'update'])->name('users.update');
+Route::get('admin/users/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
+
+//cart
+Route::resource('/admin/orders/carts', CartController::class);
+
 #ADMIN END

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrderLineRequest;
-use App\Http\Requests\UpdateOrderLineRequest;
-use App\Models\OrderLine;
+use App\Http\Requests\StoreOrderInfoRequest;
+use App\Http\Requests\UpdateOrderInfoRequest;
+use App\Models\OrderInfo;
 
-class OrderLineController extends Controller
+class OrderInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OrderLineController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderLineRequest $request)
+    public function store(StoreOrderInfoRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OrderLineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(OrderLine $orderLine)
+    public function show(OrderInfo $orderInfo)
     {
         //
     }
@@ -43,7 +43,7 @@ class OrderLineController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OrderLine $orderLine)
+    public function edit(OrderInfo $orderInfo)
     {
         //
     }
@@ -51,7 +51,7 @@ class OrderLineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderLineRequest $request, OrderLine $orderLine)
+    public function update(UpdateOrderInfoRequest $request, OrderInfo $orderInfo)
     {
         //
     }
@@ -59,7 +59,7 @@ class OrderLineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(OrderLine $orderLine)
+    public function destroy(OrderInfo $orderInfo)
     {
         //
     }

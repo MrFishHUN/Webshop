@@ -352,3 +352,20 @@ td .btn{
 .new-price{
     color: green;
 }
+
+.form-message-error{
+    background-color: #f32f2f;
+    border: 2px solid #b00000;
+    color: white;
+    padding: 10px 3rem 10px 3rem;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-row{
+    flex-direction: row;
+}

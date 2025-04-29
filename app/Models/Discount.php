@@ -11,11 +11,9 @@ class Discount extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = ['product_id', 'percentage', 'starts_at', 'ends_at'];
-    protected $casts = [
-        'starts_at' => 'datetime',
-        'ends_at' => 'datetime',
-    ];
     protected $primaryKey = 'product_id';
+    public $incrementing = false;
+    protected $keyType = 'int';
 
     public function product()
     {

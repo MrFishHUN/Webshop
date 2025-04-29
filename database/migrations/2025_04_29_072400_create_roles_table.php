@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('discounts', function (Blueprint $table) {
-            $table->foreignId('product_id')->constrained('products')->primary()->cascadeOnDelete();
-            $table->integer('percentage');
-            $table->date('starts_at');
-            $table->date('ends_at');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('role');
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('roles');
     }
 };

@@ -25,7 +25,7 @@ class DiscountController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.discounts.discount.create');
     }
 
     /**
@@ -33,7 +33,15 @@ class DiscountController extends Controller
      */
     public function store(StoreDiscountRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $discount = new Discount([
+            'product_id' => $validated['product_id'],
+            'percentage' => $validated['percentage'],
+            'starts_at' => $validated['starts_at'],
+            'ends_at' => $validated['ends_at'],
+        ]);
+        $discount->save();
+        return redirect()->route('discounts.index')->with('success', 'Kedvezmény sikeresen létrehozva');
     }
 
     /**
@@ -49,7 +57,7 @@ class DiscountController extends Controller
      */
     public function edit(Discount $discount)
     {
-        //
+        return view('admin.products.discounts.discount.edit', ['discount' => $discount]);
     }
 
     /**
@@ -57,7 +65,13 @@ class DiscountController extends Controller
      */
     public function update(UpdateDiscountRequest $request, Discount $discount)
     {
-        //
+        $validated = $request->validated();
+        $discount->update([
+            'percentage' => $validated['percentage'],
+            'starts_at' => $validated['starts_at'],
+            'ends_at' => $validated['ends_at'],
+        ]);
+        return redirect()->route('discounts.index')->with('success', 'Kedvezmény sikeresen frissítve');
     }
 
     /**

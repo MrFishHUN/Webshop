@@ -36,8 +36,7 @@
             <button>Rendelések <i class="bi bi-chevron-down"></i></button>
             <ul class="hide">
                 <!-- Options -->
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
+                <a href="{{route('carts.index')}}">Kosarak</a>
                 <a href="#">Lorem</a>
             </ul>
         </div>
@@ -53,9 +52,8 @@
         <div class="nav-button">
             <button>Felhasználók <i class="bi bi-chevron-down"></i></button>
             <ul class="hide">
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
+                <a href="{{route('users.index')}}">Felhasználók</a>
+                <a href="{{route('users.trashed')}}">Törölt felhasználók</a>
             </ul>
         </div>
     </nav>
