@@ -8,13 +8,17 @@
     @vite('resources/css/style.css')
     @vite('resources/js/script.js')
 </head>
+<style>
+    .btn {
+        @apply bg-light-beige text-dark-blue px-4 py-2 rounded-md hover:bg-beige transition flex items-center;
+    }
+</style>
 <body>
     <header class="bg-dark-blue shadow-md p-4 flex justify-between items-center text-white relative">
         <a href="{{route('home')}}"><img src="{{ asset('storage/img/onetear2_transparent_corrected.png') }}" alt="TechShop logo" class="h-20"></a>
         <div x-data="{ open: false }" class="block md:hidden bg-dark-blue">
             <button @click="open = !open" class="focus:outline-none">
                 <i data-lucide="menu" class="icon"></i>
-                <span class="cart-badge">0</span>
             </button>
 
             <div x-show="open" @click.away="open = false" class="mobile-menu absolute top-full left-0 w-full bg-dark-blue p-4 shadow-md z-50 rounded-md">
@@ -23,13 +27,22 @@
                         <input type="text" placeholder="Keresés..." class="border p-2 rounded-md w-full">
                     </li>
                     <li>
-                        <a href="{{ route('login') }}" class="icon-link flex items-center text-white">
-                            <div id="home-icon-container"></div> Bejelentkezés
+                        @if (Auth::check())
+                        <form action="{{ route('logout') }}" method="POST" class="icon-link flex items-center">
+                             @csrf
+                            <button type="submit" class="bg-light-beige text-dark-blue px-4 py-2 rounded-md hover:bg-beige transition" class="icon-link flex items-center">
+                                <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
+                            </button>
+                        </form>
+                         @else
+                         <a href="{{ route('login') }}" class="btn flex items-center">
+                            <i data-lucide="user" class="icon mr-2"></i> Bejelentkezés
                         </a>
+                         @endif
                     </li>
                     <li>
-                        <a href="#" class="icon-link flex items-center relative text-white">
-                            <div id="cart-icon-container"></div> Kosár
+                        <a href="{{ route('cart') }}" class="btn flex items-center">
+                            <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
                             <span class="cart-badge">0</span>
                         </a>
                     </li>
@@ -42,11 +55,20 @@
         </form>
 
         <div class="hidden md:flex gap-6">
-            <a href="{{ route('login') }}" class="icon-link flex items-center">
+            @if (Auth::check())
+            <form action="{{ route('logout') }}" method="POST" class="icon-link flex items-center" class="icon-link flex items-center">
+                 @csrf
+                 <button type="submit" class="btn flex items-center">
+                    <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
+                 </button>
+            </form>
+             @else
+             <a href="{{ route('login') }}" class="btn flex items-center">
                 <i data-lucide="user" class="icon mr-2"></i> Bejelentkezés
             </a>
-            <a href="{{ route('cart') }}" class="icon-link flex items-center relative">
-                <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
+             @endif
+            <a href="{{ route('cart') }}" class="btn flex items-center">
+                <i data-lucide="shopping-cart" class="icon mr-2"></i>Kosár
                 <span class="cart-badge">0</span>
             </a>
         </div>

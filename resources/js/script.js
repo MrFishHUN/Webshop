@@ -27,4 +27,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
+const badge = document.querySelector('.cart-badge');
+badge.classList.add('bump');
+setTimeout(() => badge.classList.remove('bump'), 200);
 

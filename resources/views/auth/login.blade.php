@@ -20,6 +20,7 @@
             <button type="submit" class="button login-button">Bejelentkezés</button>
         </form>
         <p>Még nincs fiókod? <a href="{{ route('register') }}">Regisztráció</a></p>
+        <p><a href="{{ route('home') }}">Vissza</a></p>
     </div>
 </body>
 </html>
