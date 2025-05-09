@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('cart_id')->constrained('carts');
+            $table->foreignId('order_info_id')->constrained('order_infos');
             $table->string('status')->default('pending');
             $table->dateTime('ordered_at');
         });

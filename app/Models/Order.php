@@ -14,4 +14,11 @@ class Order extends Model
     protected $casts = [
         'status' => OrderStatus::class,
     ];
+
+    protected $fillable = [
+        'user_id',
+        'cart_id',
+        'status',
+        'ordered_at',
+    ];
 }

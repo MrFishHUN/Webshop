@@ -19,7 +19,6 @@
                     <th>Azonosító</th>
                     <th>Termék</th>
                     <th>Mennyiség</th>
-                    <th>Ár</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,11 +27,23 @@
                         <td>{{$product->product->id}}</td>
                         <td>{{$product->product->title}}</td>
                         <td>{{$product->quantity}}</td>
-                        <td>{{$product->price}} Ft</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
+        <div class="cart-actions">
+            <br>
+            <form action="{{route('carts.destroy', $cart)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-delete">Kosár törlése</button>
+            </form>
+            <br>
+            <form action="{{route('orders.store')}}" method="POST">
+                @csrf
+                <input type="hidden" name="cart_id" value="{{$cart->id}}">
+                <button type="submit" class="btn btn-add">Rendelés leadása</button>
+            </form>
+        </div>
     </div>
 @endsection

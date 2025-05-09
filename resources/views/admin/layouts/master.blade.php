@@ -24,15 +24,6 @@
     <nav>
         <h1>Adminisztráció</h1>
         <div class="nav-button">
-            <button>Statisztika <i class="bi bi-chevron-down rot"></i></button>
-            <ul class="hide">
-                <!-- Options -->
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
-                <a href="#">Lorem</a>
-            </ul>
-        </div>
-        <div class="nav-button">
             <button>Rendelések <i class="bi bi-chevron-down"></i></button>
             <ul class="hide">
                 <!-- Options -->

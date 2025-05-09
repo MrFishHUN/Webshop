@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('order_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->cascadeOnDelete();
             $table->foreignId('user_id')->cascadeOnDelete();
             //delivery address
             $table->string('name');

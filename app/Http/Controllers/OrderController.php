@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CartStatus;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Cart;
 use App\Models\Order;
+use App\OrderStatus;
 
 class OrderController extends Controller
 {
@@ -29,7 +32,18 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $order = new Order();
+        $order->user_id = $request->user()->id;
+        $order->status = OrderStatus::PROCESSING;
+        $order->order_info_id = $request->input('order_info_id');
+        $order->cart_id = $request->input('cart_id');
+        $order->ordered_at = now();
+        $order->save();
+
+        $cart = Cart::find($request->input('cart_id'));
+        $cart->status = CartStatus::CLOSE;
+
+        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
 
     /**

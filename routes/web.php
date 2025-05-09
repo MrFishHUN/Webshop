@@ -9,9 +9,11 @@ use App\Http\Controllers\DisplayGamesController;
 use App\Http\Controllers\DisplayPartsController;
 use App\Http\Controllers\DisplayProductsController;
 use App\Http\Controllers\DisplayTelevisionController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DisplayProductsController::class, 'index'])->name('home');
@@ -90,4 +92,5 @@ Route::get('admin/users/users/trashed', [UserController::class, 'trashed'])->nam
 //cart
 Route::resource('/admin/orders/carts', CartController::class);
 
+Route::get('/admin/orders/orders/store', [OrderController::class, 'store'])->name('orders.store');
 #ADMIN END
