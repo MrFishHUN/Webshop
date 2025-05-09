@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('postal_code');
             $table->string('city');
-            $table->string('country');
             $table->string('phone');
             $table->string('email');
             //billing address
@@ -27,7 +26,6 @@ return new class extends Migration
             $table->string('billing_address');
             $table->string('billing_postal_code');
             $table->string('billing_city');
-            $table->string('billing_country');
             $table->string('billing_phone');
             $table->string('billing_email');
             //payment method

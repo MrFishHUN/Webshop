@@ -58,4 +58,5 @@ class Cart extends Model
             return $item->product->price * $item->quantity;
         });
     }
+
 }
