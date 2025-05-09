@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CartStatus;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -74,7 +76,16 @@ class CartController extends Controller
             return view('auth.login');
         }
         $user = Auth::user();
-        $user->cart->addItem($request->input('product_id'));
+        $cart = $user->cart;
+
+        if (!$cart || $cart->status === CartStatus::CLOSE) {
+            $cart = Cart::create([
+                'user_id' => $user->id,
+                'status' => CartStatus::EMPTY,
+            ]);
+        }
+
+        $cart->addItem(Product::findOrFail($request->input('product_id')));
         return redirect()->back()->with("succes", "Termék sikeresen hozzáadva");
     }
 }

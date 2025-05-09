@@ -15,6 +15,14 @@ class Cart extends Model
         'status' => CartStatus::class,
     ];
 
+    protected $fillable = [
+        'user_id',
+        'cart_id',
+        'status',
+    ];
+
+    public $timestamps = false;
+
     public function isOpen(): bool
     {
         return in_array($this->status, [CartStatus::EMPTY, CartStatus::LOADED]);

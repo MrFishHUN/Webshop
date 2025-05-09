@@ -11,6 +11,11 @@ class CartItem extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $fillable = [
+        'product_id',
+        'cart_id',
+        'quantity',
+    ];
 
     public function product()
     {
