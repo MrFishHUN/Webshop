@@ -30,9 +30,12 @@
                         @if (Auth::check())
                         <form action="{{ route('logout') }}" method="POST" class="icon-link flex items-center">
                              @csrf
-                            <button type="submit" class="bg-light-beige text-dark-blue px-4 py-2 rounded-md hover:bg-beige transition" class="icon-link flex items-center">
+                            <button type="submit" class="bg-light-beige text-dark-blue px-4 py-2 rounded-md hover:bg-beige transition icon-link flex items-center">
                                 <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
                             </button>
+                            <a href="{{ route('userData') }}" class="btn flex items-center">
+                                <i class="icon mr-2"></i>Fiók
+                            </a>
                         </form>
                          @else
                          <a href="{{ route('login') }}" class="btn flex items-center">
@@ -61,6 +64,9 @@
                  <button type="submit" class="btn flex items-center">
                     <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
                  </button>
+                 <a href="{{ route('userData') }}" class="btn flex items-center">
+                    <i class="icon mr-2"></i>Fiók
+                </a>
             </form>
              @else
              <a href="{{ route('login') }}" class="btn flex items-center">

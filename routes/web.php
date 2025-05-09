@@ -29,6 +29,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post('/addItem', [CartController::class, 'addItem'])->name('addItem');
+
 #USER
     Route::get('/user' , function() {
         return view('user.userData.index');

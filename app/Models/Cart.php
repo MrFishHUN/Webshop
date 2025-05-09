@@ -15,6 +15,25 @@ class Cart extends Model
         'status' => CartStatus::class,
     ];
 
+    public function isOpen(): bool
+    {
+        return in_array($this->status, [CartStatus::EMPTY, CartStatus::LOADED]);
+    }
+
+    public function addItem($product, int $quantity = 1)
+    {
+        CartItem::create([
+            'product_id' => $product->id,
+            'cart_id' => $this->id,
+            'quantity' => $quantity,
+        ]);
+    }
+    public function close()
+    {
+        $this->status = CartStatus::CLOSE;
+        $this->save();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

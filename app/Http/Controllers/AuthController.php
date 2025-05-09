@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\CartStatus;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -37,12 +40,22 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+
+
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
         if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user) {
+                Cart::create([
+                    'user_id' => $user->id,
+                    'status' => CartStatus::EMPTY
+                ]);
+
+            }
             return redirect()->route('home');
         }
 

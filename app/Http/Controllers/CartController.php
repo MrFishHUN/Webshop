@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
+use App\Models\CartItem;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class CartController extends Controller
 {
@@ -15,13 +19,8 @@ class CartController extends Controller
     {
         //descending order by created_at and where status is checked_out
         $carts = Cart::where('status', '=', 'checked_out')->orderBy('created_at', 'desc')->with(['user'])->paginate(10);
-
-
-
-
         return view('admin.orders.carts.index', ['carts' => $carts]);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -69,5 +68,13 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         //
+    }
+    public function addItem(Request $request){
+        if (!Auth::check()) {
+            return view('auth.login');
+        }
+        $user = Auth::user();
+        $user->cart->addItem($request->input('product_id'));
+        return redirect()->back()->with("succes", "Termék sikeresen hozzáadva");
     }
 }

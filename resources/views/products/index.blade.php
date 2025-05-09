@@ -60,7 +60,11 @@
                 <h2 class="text-lg font-bold mt-2">{{ $item->title }}</h2>
                 <p class="text-dark-blue">{{ $item->description }}</p>
                 <p class="text-dark-blue">{{ $item->price}}</p>
-                <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
+                <form method="POST" action="{{route('addItem')}}">
+                    @csrf
+                    <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>
+                    <input type="hidden" name="product_id" value="{{$item->id}}">
+                </form>
             </div>
         </a>
     @endforeach
