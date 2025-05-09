@@ -92,5 +92,5 @@ Route::get('admin/users/users/trashed', [UserController::class, 'trashed'])->nam
 //cart
 Route::resource('/admin/orders/carts', CartController::class);
 
-Route::get('/admin/orders/orders/store', [OrderController::class, 'store'])->name('orders.store');
+Route::post('/admin/orders/orders/store', [OrderController::class, 'store'])->name('orders.store');
 #ADMIN END
