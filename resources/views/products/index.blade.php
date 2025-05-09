@@ -54,12 +54,12 @@
     </div>
     <div class="container mx-auto p-6 grid grid-cols-4 gap-6">
         @foreach ($products as $item)
-        <a href="">
+        <a href="{{ route('displayProduct', $item->slug) }}">
             <div class="card bg-light-blue-gray p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <img src="{{ asset($item->picture)}}" alt="" class="w-full h-40 object-cover">
                 <h2 class="text-lg font-bold mt-2">{{ $item->title }}</h2>
-                <p class="text-dark-blue">{{ $item->description }}</p>
-                <p class="text-dark-blue">{{ $item->price}}</p>
+                <p class="text-dark-blue">{{ $item->summary }}</p>
+                <p class="text-dark-blue">{{ $item->price}} Ft</p>
                 <form method="POST" action="{{route('addItem')}}">
                     @csrf
                     <button class="button-add p-2 mt-2 w-full rounded-md">Kosárba</button>

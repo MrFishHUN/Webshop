@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
+use App\Models\Cart;
 use App\Models\CartItem;
+use Illuminate\Support\Facades\Auth;
 
 class CartItemController extends Controller
 {
@@ -13,7 +15,7 @@ class CartItemController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -37,7 +39,7 @@ class CartItemController extends Controller
      */
     public function show(CartItem $cartItem)
     {
-        //
+
     }
 
     /**

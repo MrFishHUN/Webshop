@@ -11,13 +11,6 @@
                 <p><strong>Állapot:</strong> Kiszállítva</p>
                 <p><strong>Összeg:</strong> 32 990 Ft</p>
             </div>
-{{--
-            <div class="border p-4 rounded-lg bg-gray-50">
-                <p><strong>Rendelés azonosító:</strong> #ORD12312</p>
-                <p><strong>Dátum:</strong> 2024-10-02</p>
-                <p><strong>Állapot:</strong> Feldolgozás alatt</p>
-                <p><strong>Összeg:</strong> 14 990 Ft</p>
-            </div> --}}
         </div>
     </div>
 @endsection

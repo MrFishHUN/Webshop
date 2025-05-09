@@ -30,11 +30,11 @@
                         @if (Auth::check())
                         <form action="{{ route('logout') }}" method="POST" class="icon-link flex items-center">
                              @csrf
-                            <button type="submit" class="bg-light-beige text-dark-blue px-4 py-2 rounded-md hover:bg-beige transition icon-link flex items-center">
+                           <button type="submit" class="btn flex items-center">
                                 <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
                             </button>
-                            <a href="{{ route('userData') }}" class="btn flex items-center">
-                                <i class="icon mr-2"></i>Fiók
+                           <a href="{{ route('userData') }}" class="btn flex items-center ml-4">
+                                <i data-lucide="settings" class="icon mr-2"></i>Fiók
                             </a>
                         </form>
                          @else
@@ -46,7 +46,13 @@
                     <li>
                         <a href="{{ route('cart') }}" class="btn flex items-center">
                             <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
-                            <span class="cart-badge">0</span>
+                            <span class="cart-badge">
+                                @if (Auth::check() && Auth::user()->carts->isNotEmpty())
+                                {{ Auth::user()->carts->first()->getItemCount() }}
+                                @else
+                                    0
+                                @endif
+                        </span>
                         </a>
                     </li>
                 </ul>
@@ -64,8 +70,8 @@
                  <button type="submit" class="btn flex items-center">
                     <i data-lucide="user" class="icon mr-2"></i> Kijelentkezés
                  </button>
-                 <a href="{{ route('userData') }}" class="btn flex items-center">
-                    <i class="icon mr-2"></i>Fiók
+                 <a href="{{ route('userData') }}" class="btn flex items-center ml-4">
+                    <i data-lucide="settings" class="icon mr-2"></i>Fiók
                 </a>
             </form>
              @else
@@ -75,7 +81,13 @@
              @endif
             <a href="{{ route('cart') }}" class="btn flex items-center">
                 <i data-lucide="shopping-cart" class="icon mr-2"></i>Kosár
-                <span class="cart-badge">0</span>
+                <span class="cart-badge">
+                    @if (Auth::check() && Auth::user()->carts->isNotEmpty())
+                        {{ Auth::user()->carts->first()->getItemCount() }}
+                    @else
+                        0
+                    @endif
+                </span>
             </a>
         </div>
     </header>
