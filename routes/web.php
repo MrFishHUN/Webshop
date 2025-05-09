@@ -14,9 +14,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DisplayProductsController::class, 'index'])->name('home');
+Route::get('/product/{slug}', [ProductController::class, 'display'])->name('displayProduct');
 
 Route::get('/products', [SearchController::class, 'index'])->name('displayProducts.search');
 
@@ -36,32 +39,27 @@ Route::post('/addItem', [CartController::class, 'addItem'])->name('addItem');
         return view('user.userData.index');
     })->name('userData') ;
 
-    Route::get('/user/userOrder' , function() {
+    Route::get('/userOrder' , function() {
         return view('user.userOrder.index');
     })->name('userOrder') ;
 
-    Route::get('/user/userGuarantee' , function() {
-        return view('user.userGuarantee.index');
-    })->name('userGuarantee') ;
-
-    Route::get('/user/userBillingAddress' , function() {
-        return view('user.userBillingAddress.index');
-    })->name('userBillingAddress') ;
-
-    Route::get('/user/userReview' , function() {
-        return view('user.userReview.index');
-    })->name('userReview') ;
+    Route::get('/user/userAddress' , function() {
+        return view('user.userAddress.index');
+    })->name('userAddress') ;
 
     Route::get('/editData' , function() {
         return view('user.editData.index');
     })->name('editData') ;
 
-    Route::get('/editBilling' , function() {
-        return view('user.editBilling.index');
-    })->name('editBilling') ;
+    Route::get('/editAddress' , function() {
+        return view('user.editAddress.index');
+    })->name('editAddress') ;
 
     Route::get('/cart' , function() {
-        return view('user.cart.index');
+        if (Auth::check()) {
+            return view('user.cart.index');
+        }
+        return redirect('login');
     })->name('cart') ;
 
     Route::get('/checkout' , function() {

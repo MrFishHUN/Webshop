@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use PhpParser\Node\Expr\FuncCall;
 
 class ProductController extends Controller
 {
@@ -115,5 +116,10 @@ class ProductController extends Controller
             })
             ->paginate(10);
         return view('admin.products.products.index', ['products' => $products])->with('success', 'Keresés sikeres');
+    }
+
+    public function display($slug){
+        $product = Product::where("slug", $slug)->firstOrFail();
+        return view("products.show",["product"=>$product]);
     }
 }

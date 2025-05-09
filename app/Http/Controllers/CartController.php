@@ -88,4 +88,5 @@ class CartController extends Controller
         $cart->addItem(Product::findOrFail($request->input('product_id')));
         return redirect()->back()->with("succes", "Termék sikeresen hozzáadva");
     }
+
 }

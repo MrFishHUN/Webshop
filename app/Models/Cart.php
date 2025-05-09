@@ -58,4 +58,8 @@ class Cart extends Model
             return $item->product->price * $item->quantity;
         });
     }
+    public function getItemCount(): int
+    {
+        return $this->items()->count();
+    }
 }

@@ -27,8 +27,6 @@ class DatabaseSeeder extends Seeder
         Review::factory(10)->create();
         Discount::factory(50)->create();
         Coupon::factory(50)->create();
-        Cart::factory(50)->create();
-        CartItem::factory(50)->create();
         Role::factory()->create([
             'user_id' => 1,
             'role' => 'admin',
