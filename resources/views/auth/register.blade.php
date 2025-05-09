@@ -10,6 +10,18 @@
 <body>
     <div class="register-container">
         <h2>Regisztráció</h2>
+        @error('name')
+            {{$message}}
+        @enderror
+        @error('email')
+        {{$message}}
+        @enderror
+        @error('password')
+        {{$message}}
+        @enderror
+        @error('confirm-password')
+        {{$message}}
+        @enderror
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <label for="name">Teljes név:</label>
@@ -22,7 +34,7 @@
             <input placeholder="Jelszó" type="password" id="password" name="password" required>
 
             <label for="confirm-password">Jelszó megerősítése:</label>
-            <input placeholder="Jelszó újra" type="password" id="confirm-password" name="confirm-password" required>
+            <input placeholder="Jelszó újra" type="password" id="confirm-password" name="password_confirmation" required>
 
             <button type="submit" class="button register-button">Regisztráció</button>
         </form>

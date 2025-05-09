@@ -37,9 +37,9 @@
             </div>
         </div>
 
-        <div class="hidden md:flex items-center w-1/3">
-            <input type="text" placeholder="Keresés..." class="border p-2 rounded-md w-full">
-        </div>
+        <form class="hidden md:flex items-center w-1/3" action="{{route("displayProducts.search")}}" method="GET">
+            <input name="search" type="text" placeholder="Keresés..." class="border p-2 rounded-md w-full">
+        </form>
 
         <div class="hidden md:flex gap-6">
             <a href="{{ route('login') }}" class="icon-link flex items-center">

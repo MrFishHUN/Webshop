@@ -7,18 +7,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 
 class User extends Model
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
+    use Notifiable;
     use SoftDeletes;
+
 
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
+
+    protected $hidden = ['password'];
 
     public function sendPasswordReset()
     {

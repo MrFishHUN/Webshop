@@ -14,28 +14,28 @@
             <div class="md:flex md:justify-around md:items-center md:gap-4" :class="{ 'hidden': !open }">
                 <div class="category-item text-center flex-1">
                     <div class="category-item text-center flex-1">
-                        <a href="{{ route('parts') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <a href="" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
                             <i class="bi bi-motherboard"></i> Alkatrész
                         </a>
                     </div>
                 </div>
                 <div class="category-item text-center flex-1">
                     <div class="category-item text-center flex-1">
-                        <a href="{{ route('games') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <a href="" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
                             <i class="bi bi-controller"></i> Játékok
                         </a>
                     </div>
                 </div>
                 <div class="category-item text-center flex-1">
                     <div class="category-item text-center flex-1">
-                        <a href="{{ route('televison') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <a href="" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
                             <i class="bi bi-tv"></i> Televizió
                         </a>
                     </div>
                 </div>
                 <div class="category-item text-center flex-1">
                     <div class="category-item text-center flex-1">
-                        <a href="{{ route('electronic-devices') }}" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
+                        <a href="" class="category-button button-with-icon w-full block text-center p-3 rounded-md bg-gray-700 hover:bg-gray-600">
                             <i class="bi bi-router"></i> Elektronikai alkatrészek
                         </a>
                     </div>

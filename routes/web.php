@@ -10,17 +10,13 @@ use App\Http\Controllers\DisplayPartsController;
 use App\Http\Controllers\DisplayProductsController;
 use App\Http\Controllers\DisplayTelevisionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DisplayProductsController::class, 'index'])->name('home');
 
-
-Route::get('/electronic-devices', [DisplayElectronicDevicesController::class, 'index'])->name('electronic-devices');
-Route::get('/parts', [DisplayPartsController::class, 'index'])->name('parts');
-Route::get('/games', [DisplayGamesController::class, 'index'])->name('games');
-Route::get('/televison', [DisplayTelevisionController::class, 'index'])->name('televison');
-
+Route::get('/products', [SearchController::class, 'index'])->name('displayProducts.search');
 
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
