@@ -27,8 +27,7 @@
             <button>Rendelések <i class="bi bi-chevron-down"></i></button>
             <ul class="hide">
                 <!-- Options -->
-                <a href="{{route('carts.index')}}">Kosarak</a>
-                <a href="#">Lorem</a>
+                <a href="{{route('carts.index')}}">Rendelések</a>
             </ul>
         </div>
         <div class="nav-button">

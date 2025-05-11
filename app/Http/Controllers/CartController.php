@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\CartStatus;
 use App\Http\Requests\StoreCartRequest;
+use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Order;
+use App\Models\OrderInfo;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -20,7 +23,7 @@ class CartController extends Controller
     public function index()
     {
         //descending order by created_at and where status is checked_out
-        $carts = Cart::where('status', '=', 'checked_out')->orderBy('created_at', 'desc')->with(['user'])->paginate(10);
+        $carts = Order::all();
         return view('admin.orders.carts.index', ['carts' => $carts]);
     }
     /**
@@ -36,16 +39,20 @@ class CartController extends Controller
      */
     public function store(StoreCartRequest $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Cart $cart)
+    public function show(Order $order)
     {
-        $cart = Cart::with(['user', 'items.product'])->find($cart->id);
-        return view('admin.orders.carts.show', ['cart' => $cart]);
+        $order = Order::with('cart.user', 'cart.items.product')->findOrFail($order->id);
+
+        return view('admin.orders.carts.show', [
+            'cart' => $order->cart,
+            'order' => $order,
+        ]);
     }
 
     /**
@@ -67,7 +74,7 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cart $cart)
+    public function destroy(Order $cart)
     {
         //
     }
@@ -88,5 +95,4 @@ class CartController extends Controller
         $cart->addItem(Product::findOrFail($request->input('product_id')));
         return redirect()->back()->with("succes", "Termék sikeresen hozzáadva");
     }
-
 }

@@ -23,9 +23,9 @@
     @endforeach
 
     <div class="flex justify-between items-center mt-6">
-        <p class="text-lg font-semibold">Termék: <span class="text-green-600">@foreach (Auth::user()->carts as $item )
-            {{$item->totalPrice()}} Ft
-        @endforeach</span></p>
+        <p class="text-lg font-semibold">Termék: <span class="text-green-600">
+                {{ Auth::user()->totalCartPrice() }} Ft</span></p>
+            </span></p>
         <div class="flex justify-between items-center mt-6 border-b pb-6">
             <input type="text" placeholder="Kupon kód" class="border rounded-md px-4 py-2 w-1/2">
             <button class="bg-gray-800 text-white px-4 py-2 rounded-md">Érvényesítés</button>

@@ -122,4 +122,10 @@ class ProductController extends Controller
         $product = Product::where("slug", $slug)->firstOrFail();
         return view("products.show",["product"=>$product]);
     }
+
+    public function getAllProducts()
+    {
+        $products = Product::all();
+        return response()->json($products);
+    }
 }

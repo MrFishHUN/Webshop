@@ -3,78 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\CartStatus;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderInfo;
+use App\Http\Requests\StoreOrderRequest;
 use App\OrderStatus;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreOrderRequest $request)
     {
+        $cart = Auth::user()->carts()->first();
+        $cart->status = CartStatus::CLOSE;
+        $cart->save();
+
+        $order_info = OrderInfo::create([
+            'user_id' => $request->user()->id,
+            'name' => $request->input('name'),
+            'address' => $request->input('street'),
+            'postal_code' => $request->input('postcode'),
+            'city' => $request->input('city'),
+            'phone' => $request->input('phone'),
+            'email' => $request->user()->email,
+            'billing_name' => $request->input('name'),
+            'billing_address' => $request->input('street'),
+            'billing_postal_code' => $request->input('postcode'),
+            'billing_phone' => $request->input('phone'),
+            'billing_email' => $request->user()->email,
+            'payment_method' => $request->input('payment'),
+            'payment_status' => 'unpaid',
+            'payment_transaction_id' => null,
+        ]);
+
         $order = new Order();
         $order->user_id = $request->user()->id;
         $order->status = OrderStatus::PROCESSING;
-        $order->order_info_id = $request->input('order_info_id');
-        $order->cart_id = $request->input('cart_id');
+        $order->cart_id = $cart->id;
         $order->ordered_at = now();
+        $order->order_info_id = $order_info->id;
         $order->save();
 
-        $cart = Cart::find($request->input('cart_id'));
-        $cart->status = CartStatus::CLOSE;
+        $newCart = new Cart();
+        $newCart->user_id = $request->user()->id;
+        $newCart->status = CartStatus::EMPTY;
+        $newCart->save();
 
-        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Order $order)
-    {
-        //
+        return redirect()->route('home')->with('success', 'Rendelés sikeresen létrehozva és új kosár hozva létre!');
     }
 }

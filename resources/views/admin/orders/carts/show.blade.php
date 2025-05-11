@@ -10,8 +10,7 @@
     <h1 class="title">Kosár megtekintés</h1>
     <div class="admin">
         <div class="cart-info">
-            <h2>Felhasználó: {{$cart->user->email}}</h2>
-            <h2>Összesen: {{$cart->totalPrice()}} Ft</h2>
+            <h2>Összesen: {{$cart}} Ft</h2>
         </div>
         <table>
             <thead>

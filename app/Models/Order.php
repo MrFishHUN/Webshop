@@ -20,5 +20,18 @@ class Order extends Model
         'cart_id',
         'status',
         'ordered_at',
+        'order_info_id',
     ];
+
+    public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
 }

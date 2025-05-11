@@ -27,22 +27,6 @@ class User extends Authenticatable
 
     protected $hidden = ['password'];
 
-    public function sendPasswordReset()
-    {
-        // Logic to send password reset email
-        $token = bin2hex(random_bytes(32));
-
-        DB::table('password_reset_tokens')->updateOrInsert(
-            ['user_id' => $this->id],
-            [
-                'token' => $token,
-                'created_at' => now(),
-                'expires_at' => now()->addMinutes(15),
-            ]
-        );
-
-        logger()->info("Password reset token for user {$this->email}: {$token}");
-    }
 
     public function carts()
     {
@@ -57,6 +41,11 @@ class User extends Authenticatable
     public function hasRole(Roles $role): bool
     {
         return $this->roles()->where('role', $role)->exists();
+    }
+
+    public function totalCartPrice(): int
+    {
+        return $this->carts->sum(fn($cart) => $cart->totalPrice());
     }
 
 }

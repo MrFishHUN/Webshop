@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('billing_name');
             $table->string('billing_address');
             $table->string('billing_postal_code');
-            $table->string('billing_city');
             $table->string('billing_phone');
             $table->string('billing_email');
             //payment method

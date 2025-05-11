@@ -24,7 +24,7 @@
                         <tr>
                             <td>{{$cart->id}}</td>
                             <td>{{$cart->user->email}}</td>
-                            <td>{{$cart->totalPrice()}} Ft</td>
+                            <td>{{$cart->cart->totalPrice()}} Ft</td>
                             <td>{{$cart->created_at}}</td>
                             <td><a href="{{route('carts.show',$cart)}}" class="btn btn-add">Megtekintés</a></td>
                         </tr>

@@ -46,13 +46,6 @@
                     <li>
                         <a href="{{ route('cart') }}" class="btn flex items-center">
                             <i data-lucide="shopping-cart" class="icon mr-2"></i> Kosár
-                            <span class="cart-badge">
-                                @if (Auth::check() && Auth::user()->carts->isNotEmpty())
-                                {{ Auth::user()->carts->first()->getItemCount() }}
-                                @else
-                                    0
-                                @endif
-                        </span>
                         </a>
                     </li>
                 </ul>
@@ -81,13 +74,6 @@
              @endif
             <a href="{{ route('cart') }}" class="btn flex items-center">
                 <i data-lucide="shopping-cart" class="icon mr-2"></i>Kosár
-                <span class="cart-badge">
-                    @if (Auth::check() && Auth::user()->carts->isNotEmpty())
-                        {{ Auth::user()->carts->first()->getItemCount() }}
-                    @else
-                        0
-                    @endif
-                </span>
             </a>
         </div>
     </header>
